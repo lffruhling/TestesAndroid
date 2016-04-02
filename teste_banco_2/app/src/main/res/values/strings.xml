@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">teste_banco_2</string>
+    <string name="app_name">Banco + Crud</string>
+
+
+    <!-- Validações/Mensagens -->
+    <string name="usuarioVazio">Informe um usuário!</string>
+    <string name="senhaVazio">Informe uma senha!</string>
 </resources>
