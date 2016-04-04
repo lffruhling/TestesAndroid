@@ -8,16 +8,27 @@ public class Usuario {
     private String nome;
     private String login;
     private String senha;
+    private String created_ad;
 
-    public Usuario (){
-
+    public String getCreated_ad() {
+        return created_ad;
     }
 
-    public  Usuario (Integer id, String nome, String login, String senha){
+    public void setCreated_ad(String created_ad) {
+        this.created_ad = created_ad;
+    }
+
+    public Usuario(int id, String nome, String login, String senha, String created_ad){
         this._id = id;
         this.nome = nome;
         this.login = login;
         this.senha = senha;
+        this.created_ad = created_ad;
+
+    }
+
+    public  Usuario(){
+
     }
 
     public Integer get_id() {

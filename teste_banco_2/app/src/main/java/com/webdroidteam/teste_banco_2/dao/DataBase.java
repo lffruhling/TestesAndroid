@@ -24,11 +24,11 @@ public class DataBase extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         //Criação da tabela usuário
         db.execSQL( "Create table usuarios (_id integer primary key autoincrement, "+
-                    "nome text not null, login text not null, senha text not null);");
+                    "nome text not null, login text not null, senha text not null, created_at text);");
 
         //Tabela de tarefas
         db.execSQL( "Create table tarefas (_id integer primary key autoincrement, "+
-                    "tarefa text not null, dt_criacao datetime default current_datetime, dt_completado datetime);");
+                    "tarefa text not null, dt_criacao text, dt_completado text);");
 
         // Cadastra usuário padrão
        /* // FAIL
@@ -56,9 +56,10 @@ public class DataBase extends SQLiteOpenHelper{
         public static final String NOME = "nome";
         public static final String LOGIN = "login";
         public static final String SENHA = "senha";
+        public static final String CREATED_AD = "created_at";
 
         public static final String[] COLUNAS = new String[]{
-            _ID, NOME, LOGIN, SENHA
+            _ID, NOME, LOGIN, SENHA, CREATED_AD
         };
     }
 

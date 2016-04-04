@@ -1,0 +1,10 @@
+<menu xmlns:android2="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_lista_usuarios"
+        android2:title="Usuários"
+        android2:orderInCategory="100"
+        app:showAsAction="never"/>
+
+</menu>

@@ -36,7 +36,8 @@ public class UsuarioDAO {
                 cursor.getInt(cursor.getColumnIndex(DataBase.Usuarios._ID)),
                 cursor.getString(cursor.getColumnIndex(DataBase.Usuarios.NOME)),
                 cursor.getString(cursor.getColumnIndex(DataBase.Usuarios.LOGIN)),
-                cursor.getString(cursor.getColumnIndex(DataBase.Usuarios.SENHA))
+                cursor.getString(cursor.getColumnIndex(DataBase.Usuarios.SENHA)),
+                cursor.getString(cursor.getColumnIndex(DataBase.Usuarios.CREATED_AD))
         );
 
         return model;
@@ -59,6 +60,7 @@ public class UsuarioDAO {
         valores.put(DataBase.Usuarios.NOME, usuario.getNome());
         valores.put(DataBase.Usuarios.LOGIN, usuario.getLogin());
         valores.put(DataBase.Usuarios.SENHA, usuario.getSenha());
+        valores.put(DataBase.Usuarios.CREATED_AD, usuario.getCreated_ad());
 
         if (usuario.get_id() != null){
             return getDatabase().update(DataBase.Usuarios.TABELA, valores, "_id = ?", new String[]{usuario.get_id().toString()});

@@ -5,4 +5,16 @@
     <!-- Validações/Mensagens -->
     <string name="usuarioVazio">Informe um usuário!</string>
     <string name="senhaVazio">Informe uma senha!</string>
+    <string name="errorLogin">Usuário ou senha inválidos!</string>
+    <string name="cpoVazio">Campo de preencimento obrigatório!</string>
+    <string name="confSenha">Informe as duas senhas iguas!</string>
+    <string name="save_success">Usuário salvo com sucesso!</string>
+    <string name="update_success">Usuário atualizado com sucesso!</string>
+    <string name="save_error">Erro ao salvar usuário!</string>
+
+    <!-- CRUD de usuário -->
+    <string name="txtNome_Usu">Nome:</string>
+    <string name="txtLogin_Usu">Login:</string>
+    <string name="txtSenha_Usu">Senha:</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>
