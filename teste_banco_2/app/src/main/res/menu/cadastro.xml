@@ -8,13 +8,6 @@
         android2:icon="@drawable/ic_save"
         app:showAsAction="ifRoom|withText"/>
 
-    <item android:id="@+id/action_menu_excluir"
-        android2:title="Salvar"
-        android2:orderInCategory="100"
-        android2:icon="@drawable/ic_delete"
-        android2:visible="false"
-        app:showAsAction="ifRoom|withText"/>
-
     <item android:id="@+id/action_menu_sair"
         android2:title="Sair"
         android2:orderInCategory="100"

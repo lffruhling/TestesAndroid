@@ -29,9 +29,19 @@ public class CadUsuario extends AppCompatActivity {
         cpoLogin = (EditText) findViewById(R.id.cpo_CadLogin);
         cpoSenha = (EditText) findViewById(R.id.cpo_CadSenha);
         cpoConfSenha = (EditText) findViewById(R.id.cpo_ConfSenha);
+
+        //Pega os dados do outro form
+        //Modo Edição
+        idUsuario = getIntent().getIntExtra("USUARIO_ID", 0);
+        if (idUsuario > 0){
+            Usuario model = usuarioDAO.buscarUsuarioId(idUsuario);
+            cpoNome.setText(model.getNome());
+            cpoLogin.setText(model.getLogin());
+            cpoSenha.setText(model.getSenha());
+
+            setTitle("Editar Usuário");
+        }
     }
-
-
 
     private void cadastrar(){
         boolean validacao = true;
@@ -99,11 +109,6 @@ public class CadUsuario extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.cadastro, menu);
-
-        if(idUsuario > 0){
-            menu.findItem(R.id.action_menu_excluir).setVisible(true);
-        }
-
         return true;
     }
 
