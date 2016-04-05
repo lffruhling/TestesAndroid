@@ -23,8 +23,9 @@ public class SplashActivity extends Activity {
             public void run() {
                 finish();
 
-                Intent intent = new Intent();
-                intent.setClass(SplashActivity.this, LoginActivity.class);
+                //Intent intent = new Intent();
+                //intent.setClass(SplashActivity.this, LoginActivity.class);
+                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                 startActivity(intent);
                 //Toast.makeText(this,"taste",Toast.LENGTH_SHORT).show();
                 //Log.i("TAG","aqui");

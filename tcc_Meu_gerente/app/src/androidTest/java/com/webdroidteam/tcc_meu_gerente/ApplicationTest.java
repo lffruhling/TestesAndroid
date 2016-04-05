@@ -1,4 +1,4 @@
-package com.webdroidteam.teste_layout_1;
+package com.webdroidteam.tcc_meu_gerente;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
