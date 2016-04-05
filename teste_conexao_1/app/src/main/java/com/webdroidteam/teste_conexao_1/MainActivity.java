@@ -1,11 +1,14 @@
 package com.webdroidteam.teste_conexao_1;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -25,13 +28,17 @@ public class MainActivity extends AppCompatActivity {
     public void testaCon (View view){
         if(isOnline(MainActivity.this)){
             Toast.makeText(MainActivity.this,"Conexão OK", Toast.LENGTH_LONG).show();
+
         }else{
             Toast.makeText(MainActivity.this,"Sem Conexão", Toast.LENGTH_LONG).show();
         }
     }
 
     public void ligaWifi(View view){
-        setEstadoWifi();
+        if(!isOnline(this)) {
+            alertDialog(this);
+        }
+        //setEstadoWifi();
     }
 
     public void setEstadoWifi(){
@@ -56,5 +63,26 @@ public class MainActivity extends AppCompatActivity {
             return true;
         else
             return false;
+    }
+
+    public void alertDialog(final Context context){
+        try{
+            AlertDialog.Builder alerta = new AlertDialog.Builder(context);
+            //alerta.setIcon(R.drawable.abc_ic_go);
+            alerta.setTitle("Alerta");
+            alerta.setMessage("Sinal não encontrado.");
+
+            alerta.setPositiveButton("Ativar Wifi?", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    //Toast.makeText(context, "Sinal não encontrado. Aplicação será encerrada", Toast.LENGTH_LONG).show();
+                    setEstadoWifi();
+                }
+            });
+
+            alerta.show();
+        }catch (Exception erro){
+            Log.e("Erro: ", erro.getMessage(), erro);
+        }
     }
 }
