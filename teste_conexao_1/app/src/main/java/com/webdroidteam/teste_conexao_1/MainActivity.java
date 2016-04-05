@@ -41,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
         //setEstadoWifi();
     }
 
+    public void testeMobile(View view){
+        if (testa3G(this)){
+            Toast.makeText(this, "3G LIGADA", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(this, "3G DESLIGADA", Toast.LENGTH_LONG).show();
+        }
+    }
+
     public void setEstadoWifi(){
         if (adminWifi.isWifiEnabled()){
             //Toast.makeText(MainActivity.this, "WIFI LIGADA", Toast.LENGTH_LONG).show();
@@ -63,6 +71,14 @@ public class MainActivity extends AppCompatActivity {
             return true;
         else
             return false;
+    }
+
+    public static boolean testa3G(Context context){
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+        return mobile.isConnected();
     }
 
     public void alertDialog(final Context context){
