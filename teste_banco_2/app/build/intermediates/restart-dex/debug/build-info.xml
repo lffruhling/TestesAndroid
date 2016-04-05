@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="23"
+    density="420dpi"
+    format="7"
+    timestamp="146757448322054" >
+
+    <task
+        name="javac"
+        duration="2759" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="912" />
+    <task
+        name="verifier"
+        duration="257" />
+
+    <artifact
+        location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
+
+    <build timestamp="146757448322054" >
+        <artifact
+            location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>
