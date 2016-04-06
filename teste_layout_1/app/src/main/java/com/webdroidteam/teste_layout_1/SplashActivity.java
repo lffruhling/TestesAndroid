@@ -14,24 +14,69 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.webdroidteam.teste_layout_1.conectService.ConectService;
+import com.webdroidteam.teste_layout_1.models.ServiceCatalog;
+import com.webdroidteam.teste_layout_1.models.Usuarios;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class SplashActivity extends Activity {
     WifiManager adminWifi;
+    private static final String TAG = "LOG-LEO";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        //Teste de Conexão
         adminWifi = (WifiManager) SplashActivity.this.getSystemService(Context.WIFI_SERVICE);
 
         if (testa3G(this) || isConected(this)){
-            new Timer().schedule(new TimerTask() {
+            Toast.makeText(SplashActivity.this,"Entrou", Toast.LENGTH_LONG).show();
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(ConectService.BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            ConectService service = retrofit.create(ConectService.class);
+            Call<ServiceCatalog> requestCatalog = service.listCatalog();
+
+            requestCatalog.enqueue(new Callback<ServiceCatalog>() {
+                @Override
+                public void onResponse(Call<ServiceCatalog> call, Response<ServiceCatalog> response) {
+                    if(!response.isSuccessful()){
+                        Log.i(TAG,"ErroRRR de insucesso: "+response.code());
+                    }else{
+                        //Requisição com sucesso
+                        ServiceCatalog catalog = response.body();
+                        Integer i = 0;
+                        for(Usuarios c : catalog.usuarios){
+                            Log.i("OKKKKKK",String.format("%s: %s",c.id,c.nome));
+                            i++;
+                            Log.i("Array: ", i.toString());
+                            Log.i(TAG,"---------------------");
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ServiceCatalog> call, Throwable t) {
+                    Log.e(TAG,"--------------Erro: "+t.getMessage());
+                }
+            });
+
+            /*new Timer().schedule(new TimerTask() {
                 @Override
                 public void run() {
                     finish();
@@ -39,7 +84,7 @@ public class SplashActivity extends Activity {
                     Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }
-            }, 3000);
+            }, 3000);*/
         }else{
             alertDialog(this);
 

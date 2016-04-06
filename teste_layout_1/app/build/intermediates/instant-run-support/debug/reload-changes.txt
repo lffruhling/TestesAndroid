@@ -1,5 +1,7 @@
 CHANGED,C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\webdroidteam\teste_layout_1\SplashActivity$override.class
 CHANGED,C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\webdroidteam\teste_layout_1\SplashActivity$3$override.class
+CHANGED,C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\webdroidteam\teste_layout_1\SplashActivity$1$override.class
 CHANGED,C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\webdroidteam\teste_layout_1\SplashActivity$2$override.class
+CHANGED,C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\webdroidteam\teste_layout_1\SplashActivity$5$override.class
 CHANGED,C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
 CHANGED,C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\webdroidteam\teste_layout_1\SplashActivity$4$override.class
