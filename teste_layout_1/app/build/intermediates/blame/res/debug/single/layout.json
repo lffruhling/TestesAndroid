@@ -76,12 +76,12 @@
         "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
-        "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
-        "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\abc_action_mode_close_item_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
         "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
         "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",

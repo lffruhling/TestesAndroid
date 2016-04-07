@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.webdroidteam.teste_layout_1.conectService.ConectService;
+import com.webdroidteam.teste_layout_1.dao.DataBase;
+import com.webdroidteam.teste_layout_1.dao.UsuarioDAO;
 import com.webdroidteam.teste_layout_1.models.ServiceCatalog;
 import com.webdroidteam.teste_layout_1.models.Usuarios;
 
@@ -33,12 +35,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class SplashActivity extends Activity {
     WifiManager adminWifi;
     private static final String TAG = "LOG-LEO";
+    private Usuarios usuario;
+    private UsuarioDAO usuarioDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
+        usuarioDAO = new UsuarioDAO(this);
         //Teste de Conexão
         adminWifi = (WifiManager) SplashActivity.this.getSystemService(Context.WIFI_SERVICE);
 
@@ -62,10 +66,21 @@ public class SplashActivity extends Activity {
                         ServiceCatalog catalog = response.body();
                         Integer i = 0;
                         for(Usuarios c : catalog.usuarios){
-                            Log.i("OKKKKKK",String.format("%s: %s",c.id,c.nome));
+                            usuario = new Usuarios();
+                            usuario.setId_web(c.id_web);
+                            usuario.setNome(c.nome);
+                            usuario.setEmail(c.email);
+                            usuario.setUsuario(c.usuario);
+                            usuario.setSenha(c.senha);
+                            usuarioDAO.salvarUsuario(usuario);
+                            Log.i("OKKKKKK",String.format("%s: %s",c._id,c.nome));
                             i++;
                             Log.i("Array: ", i.toString());
                             Log.i(TAG,"---------------------");
+                            finish();
+
+                            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                            startActivity(intent);
                         }
                     }
                 }
