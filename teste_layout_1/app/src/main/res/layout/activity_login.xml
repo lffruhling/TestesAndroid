@@ -73,5 +73,5 @@
         android:layout_marginTop="20dp"
         android:background="#ffffff"
         android:textColor="#00b863"
-        android:onClick="verificaLogin"/>
+        android:onClick="logar"/>
 </RelativeLayout>
