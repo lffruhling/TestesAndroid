@@ -55,24 +55,17 @@ public class UsuarioDAO {
         return getDatabase().insert(DataBase.Usuarios.TABELA, null, valores);
     }
 
-    public  Usuarios buscarUsuarioId(int id){
-        Cursor cursor = getDatabase().query(DataBase.Usuarios.TABELA, DataBase.Usuarios.COLUNAS, "_id = ?", new String[]{Integer.toString(id)}, null, null, null);
-        if(cursor.moveToNext()){
-            Usuarios model = criaUsuario(cursor);
-            cursor.close();
-            return model;
-        }
-
-        return null;
+    public boolean limparBanco(){
+        return getDatabase().delete(DataBase.Usuarios.TABELA, null, null) > 0;
     }
 
     public  boolean logar(String usuario, String email, String senha){
-        Cursor cursor = getDatabase().query(DataBase.Usuarios.TABELA, null, "LOGIN = ? and SENHA = ?", new String[]{usuario, senha},null,null,null);
+        Cursor cursor = getDatabase().query(DataBase.Usuarios.TABELA, null, "(USUARIO = ? or EMAIL = ?) and SENHA = ?", new String[]{usuario, email, senha},null,null,null);
 
         if(cursor.moveToFirst()){
             return true;
-        }
-        return false;
+        }else
+            return false;
     }
 
     public  void fechar(){

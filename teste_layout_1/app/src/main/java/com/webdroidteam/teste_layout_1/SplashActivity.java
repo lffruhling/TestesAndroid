@@ -72,7 +72,8 @@ public class SplashActivity extends Activity {
                             usuario.setEmail(c.email);
                             usuario.setUsuario(c.usuario);
                             usuario.setSenha(c.senha);
-                            usuarioDAO.salvarUsuario(usuario);
+                            usuarioDAO.limparBanco(); // Limpa o banco
+                            usuarioDAO.salvarUsuario(usuario); // Carrega logins
                             Log.i("OKKKKKK",String.format("%s: %s",c._id,c.nome));
                             i++;
                             Log.i("Array: ", i.toString());

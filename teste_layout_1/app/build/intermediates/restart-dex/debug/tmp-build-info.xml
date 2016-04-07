@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="23"
+    density="420dpi"
+    format="7"
+    timestamp="2381254073825" >
+
+    <task
+        name="javac"
+        duration="2447" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="2092" />
+    <task
+        name="verifier"
+        duration="1055" />
+
+    <artifact
+        location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\res\resources-debug.ap_"
+        type="RESOURCES" />
+    <artifact
+        location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\res\resources-debug.ap_"
+        type="RESOURCES" />
+    <artifact
+        location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_4c20460436ea7417fd4af5e1b8fc28564549a862\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.0.0_dc8e86b1ff5568e522db0298bec1de25865d5177\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.2.0_a1411c3576594d994246bccb1011f4bd37c99f2d\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_8bd04619bff8910d5148e4f214c695d7c3a88389\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.0.0_11fd619b02721a24d9d2b064a0aba58ce7e16073\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.2.0_8651ec12d16f8965405c08379b6c634f81f4d906\classes.dex"
+        type="DEX" />
+
+</instant-run>
