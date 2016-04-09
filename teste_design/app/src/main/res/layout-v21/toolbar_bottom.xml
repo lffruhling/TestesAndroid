@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/tb_botton"
+    android:layout_alignParentBottom="true"
+    android:minHeight="15dp"
+    android:background="@color/colorPrimary">
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:id="@+id/iv_settings"
+        android:src="@drawable/settings"/>
+
+</Toolbar>
+
