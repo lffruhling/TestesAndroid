@@ -5,7 +5,7 @@
         jar="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="7eb2061c60309d14f2c97282fc952d3b37f6a2e7">
+        sha1="99c89ed2fb251f7c3e56359a50664d12dbd0b77a">
         <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_8bd04619bff8910d5148e4f214c695d7c3a88389\classes.dex" />
     </item>
     <item
@@ -21,6 +21,27 @@
         revision="23.0.2"
         sha1="b9d63507329a7178e026fc334f87587ee5070ac5">
         <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.6.1_c416b636d5cbd21310defec1cd275af3e813712b\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Leonardo\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.0.0\5c06d197fb7fa875ad452f562e3310dd9949d066\retrofit-2.0.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5c06d197fb7fa875ad452f562e3310dd9949d066">
+        <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.0.0_11fd619b02721a24d9d2b064a0aba58ce7e16073\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8c108c22c99e794eff255bb34d2a461200c4cbb0">
+        <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.2.0_8abac26b86bb81331bbb0f6cbb593db96f30f696\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Leonardo\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.0.0\49eb3ad545e7701234e4dd83db8dc1344b577f23\converter-gson-2.0.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="49eb3ad545e7701234e4dd83db8dc1344b577f23">
+        <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.0.0_dc8e86b1ff5568e522db0298bec1de25865d5177\classes.dex" />
     </item>
     <item
         jar="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.0\jars\classes.jar"
@@ -47,7 +68,7 @@
         jar="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="e7ae29b531eba4f695e40a1d49864157f2e769e1">
+        sha1="12f7d6b17ec78d89a7720c9f3e741e03ea50e270">
         <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_4c20460436ea7417fd4af5e1b8fc28564549a862\classes.dex" />
     </item>
     <item
@@ -56,27 +77,6 @@
         revision="23.0.2"
         sha1="c5bf571bb10462bd90e5419ade67793f71acbc87">
         <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.2.0_6ed29676560ce5d5e5730d025a0089a9006a0abf\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Leonardo\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.0.0\5c06d197fb7fa875ad452f562e3310dd9949d066\retrofit-2.0.0.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="5c06d197fb7fa875ad452f562e3310dd9949d066">
-        <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.0.0_11fd619b02721a24d9d2b064a0aba58ce7e16073\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="8c108c22c99e794eff255bb34d2a461200c4cbb0">
-        <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.2.0_8abac26b86bb81331bbb0f6cbb593db96f30f696\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Leonardo\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.0.0\49eb3ad545e7701234e4dd83db8dc1344b577f23\converter-gson-2.0.0.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="49eb3ad545e7701234e4dd83db8dc1344b577f23">
-        <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.0.0_dc8e86b1ff5568e522db0298bec1de25865d5177\classes.dex" />
     </item>
     <item
         jar="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\jars\libs\internal_impl-23.2.0.jar"

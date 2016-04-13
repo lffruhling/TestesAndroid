@@ -24,12 +24,12 @@
         "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
-        "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
-        "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_tab_indicator_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_dark.xml",
         "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_dialog_material_background_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_tab_indicator_material.xml"
     },
     {
         "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
@@ -140,12 +140,12 @@
         "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_radio_off_mtrl.xml"
     },
     {
-        "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
-        "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_seekbar_thumb_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
         "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
+        "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",

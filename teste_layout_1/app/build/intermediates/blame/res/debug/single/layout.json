@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
-        "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\abc_screen_simple.xml"
-    },
-    {
         "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
         "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\abc_screen_simple.xml"
     },
     {
         "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
