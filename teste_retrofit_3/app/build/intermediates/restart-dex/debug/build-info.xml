@@ -2,28 +2,28 @@
 <instant-run
     abi="x86"
     api-level="23"
-    density="420dpi"
+    density="xhdpi"
     format="7"
-    timestamp="238352052167902" >
+    timestamp="3336387493959" >
 
     <task
         name="javac"
-        duration="3994" />
+        duration="29770" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="2449" />
+        duration="913" />
     <task
         name="verifier"
-        duration="1233" />
+        duration="872" />
 
     <artifact
         location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_retrofit_3\app\build\outputs\apk\app-debug.apk"
         type="MAIN" />
 
-    <build timestamp="238352052167902" >
+    <build timestamp="3336387493959" >
         <artifact
             location="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_retrofit_3\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />

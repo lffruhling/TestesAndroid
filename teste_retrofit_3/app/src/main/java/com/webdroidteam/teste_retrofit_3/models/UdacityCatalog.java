@@ -8,4 +8,5 @@ import java.util.List;
 public class UdacityCatalog {
     public List<Clientes> clientes;
     //public List<Clientes> clientes; //Demais listas (Arrays caso tivesse)
+    public List<Servicos> servicos;
 }

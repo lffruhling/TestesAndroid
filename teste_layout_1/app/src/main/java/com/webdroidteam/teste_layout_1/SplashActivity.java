@@ -47,7 +47,7 @@ public class SplashActivity extends Activity {
         adminWifi = (WifiManager) SplashActivity.this.getSystemService(Context.WIFI_SERVICE);
 
         if (testa3G(this) || isConected(this)){
-            Toast.makeText(SplashActivity.this,"Entrou", Toast.LENGTH_LONG).show();
+            //Toast.makeText(SplashActivity.this,"Entrou", Toast.LENGTH_LONG).show();
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(ConectService.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())

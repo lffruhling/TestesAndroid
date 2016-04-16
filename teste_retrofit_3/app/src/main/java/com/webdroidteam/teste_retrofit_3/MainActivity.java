@@ -1,21 +1,17 @@
 package com.webdroidteam.teste_retrofit_3;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.webdroidteam.teste_retrofit_3.models.Clientes;
+import com.webdroidteam.teste_retrofit_3.models.Produtos;
+import com.webdroidteam.teste_retrofit_3.models.Servicos;
 import com.webdroidteam.teste_retrofit_3.models.UdacityCatalog;
-
-import java.util.List;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
                                         .build();
 
         UdacityService service = retrofit.create(UdacityService.class);
-        Call<UdacityCatalog> requestCatalog = service.listCatalog();
+        //Call<UdacityCatalog> requestCatalog = service.listCatalog();
 
-        requestCatalog.enqueue(new Callback<UdacityCatalog>() {
+        /*requestCatalog.enqueue(new Callback<UdacityCatalog>() {
             @Override
             public void onResponse(Call<UdacityCatalog> call, Response<UdacityCatalog> response) {
                 if(!response.isSuccessful()){
@@ -63,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<UdacityCatalog> call, Throwable t) {
                 Log.e(TAG,"--------------Erro: "+t.getMessage());
             }
-        });
+        });*/
 
         /*
         *
@@ -79,6 +75,37 @@ public class MainActivity extends AppCompatActivity {
         lv_lista.setAdapter(adapter);
 
         lv_lista.setOnItemClickListener(chamaAtividades());
+
+        // Teste 14/04/ - enviar json
+        Call<UdacityCatalog> call = service.listServicos();
+
+        call.enqueue(new Callback<UdacityCatalog>() {
+            @Override
+            public void onResponse(Call<UdacityCatalog> call, Response<UdacityCatalog> response) {
+                if(!response.isSuccessful()){
+                    Log.i(TAG,"JSON ERROR: "+response.code());
+                }else{
+                    //Requisição com sucesso
+                    Log.i(TAG,"JSON OK: "+response.code());
+                    UdacityCatalog catalog = response.body();
+
+                    for(Servicos s : catalog.servicos){
+                        Log.i("RES",String.format("%s : %s", s.id_web,s.nome));
+
+                        for(Produtos p : s.produtos){
+                            Log.i("RES",p.nome);
+                        }
+
+                        Log.i("RES","--------------");
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UdacityCatalog> call, Throwable t) {
+                Log.e(TAG,"FAILURE: "+t.getMessage());
+            }
+        });
     }
 
     public AdapterView.OnItemClickListener chamaAtividades(){

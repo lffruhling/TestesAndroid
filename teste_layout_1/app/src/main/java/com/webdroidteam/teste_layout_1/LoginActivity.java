@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import com.webdroidteam.teste_layout_1.dao.UsuarioDAO;
 import com.webdroidteam.teste_layout_1.util.Mensagem;
+import android.support.v7.widget.AppCompatCheckBox;
 
 /**
  * Created by Leonardo on 30/03/2016.
@@ -17,7 +18,8 @@ import com.webdroidteam.teste_layout_1.util.Mensagem;
 public class LoginActivity extends Activity {
     private EditText cpoUsuario, cpoSenha;
     private UsuarioDAO helper;
-    private CheckBox ckbConectado;
+    //private AppCompatCheckBox ckbConectado;
+    //final CheckBox ckbConectado  = (CheckBox) findViewById(R.id.ckb_ManterConectado);
 
     private static final String MANTER_CONECTADO = "manter_conectado";
     private static final String PREFERENCE_NAME = "LoginActivtyPreferences";
@@ -29,7 +31,7 @@ public class LoginActivity extends Activity {
 
         cpoUsuario    = (EditText) findViewById(R.id.cpoUsuario);
         cpoSenha      = (EditText) findViewById(R.id.cpoSenha);
-        ckbConectado  = (CheckBox) findViewById(R.id.ckb_ManterConectado);
+        //final CheckBox ckbConectado  = (CheckBox) findViewById(R.id.ckb_ManterConectado);
 
         helper = new UsuarioDAO(this);
 
@@ -61,13 +63,13 @@ public class LoginActivity extends Activity {
             // Logar
             if(helper.logar(usuario,usuario,senha)){
                 //Criar arquivo de preferencia, caso check marcado
-                if (ckbConectado.isChecked()){
+               // if (ckbConectado.isChecked()){
                     SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
                     editor.putBoolean(MANTER_CONECTADO, true);
                     editor.commit();
-                }
+               // }
 
                 abreMenu();
 
