@@ -77,8 +77,8 @@ public class MainActivity extends AppCompatActivity {
         lv_lista.setOnItemClickListener(chamaAtividades());
 
         // Teste 14/04/ - enviar json
-        Call<UdacityCatalog> call = service.listServicos();
-
+        //Call<UdacityCatalog> call = service.listServicos();
+        Call<UdacityCatalog> call = service.listServicosId("1");
         call.enqueue(new Callback<UdacityCatalog>() {
             @Override
             public void onResponse(Call<UdacityCatalog> call, Response<UdacityCatalog> response) {

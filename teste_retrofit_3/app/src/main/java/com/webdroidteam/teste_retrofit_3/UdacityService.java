@@ -5,6 +5,7 @@ import com.webdroidteam.teste_retrofit_3.models.UdacityCatalog;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by Leonardo on 26/03/2016.
@@ -18,5 +19,8 @@ public interface UdacityService {
 
     @GET("servicos")
     Call<UdacityCatalog> listServicos();
+
+    @GET("servicos/id")
+    Call<UdacityCatalog> listServicosId(@Query("id_us") String id);
 
 }
