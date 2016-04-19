@@ -62,15 +62,12 @@ public class LoginActivity extends Activity {
         if (validacao){
             // Logar
             if(helper.logar(usuario,usuario,senha)){
-                //Criar arquivo de preferencia, caso check marcado
-               // if (ckbConectado.isChecked()){
-                    SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                //Descomentar para criar arquivo de permanencia de login
+                //SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
+                //SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                    editor.putBoolean(MANTER_CONECTADO, true);
-                    editor.commit();
-               // }
-
+                //editor.putBoolean(MANTER_CONECTADO, true);
+                //editor.commit();
                 abreMenu();
 
             }else{
@@ -82,7 +79,16 @@ public class LoginActivity extends Activity {
     }
 
     private void abreMenu(){
+        String usuario = cpoUsuario.getText().toString();
+        String senha = cpoSenha.getText().toString();
+
         Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+        String id_tec = helper.IdTec(usuario,usuario,senha);
+        //Envia para a tela de OS, qual o usuário logado
+        Bundle params = new Bundle();
+        params.putString("ID_TEC",id_tec);
+        intent.putExtras(params);
+
         startActivity(intent);
         setContentView(R.layout.activity_menu);
         finish();

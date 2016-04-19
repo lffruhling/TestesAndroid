@@ -88,16 +88,16 @@
         "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_ic_menu_share_material.xml"
     },
     {
-        "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_colored_material.xml"
+        "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
+        "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_ic_clear_material.xml"
     },
     {
         "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_checkbox_unchecked_mtrl.xml",
         "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_checkbox_unchecked_mtrl.xml"
     },
     {
-        "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
-        "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_ic_clear_material.xml"
+        "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_colored_material.xml"
     },
     {
         "merged": "C:\\Users\\Leonardo\\Documents\\Desenvolvimento\\Android\\testes\\teste_layout_1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_selectall_material.xml",

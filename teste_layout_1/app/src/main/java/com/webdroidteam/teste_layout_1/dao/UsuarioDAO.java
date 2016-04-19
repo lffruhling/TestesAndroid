@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.util.Log;
 
 import com.webdroidteam.teste_layout_1.models.Usuarios;
 
@@ -25,19 +27,6 @@ public class UsuarioDAO {
         }
 
         return sqlDatabase;
-    }
-
-    private Usuarios criaUsuario (Cursor cursor){
-        Usuarios model = new Usuarios(
-                cursor.getInt(cursor.getColumnIndex(DataBase.Usuarios._ID)),
-                cursor.getString(cursor.getColumnIndex(DataBase.Usuarios.ID_WEB)),
-                cursor.getString(cursor.getColumnIndex(DataBase.Usuarios.NOME)),
-                cursor.getString(cursor.getColumnIndex(DataBase.Usuarios.EMAIL)),
-                cursor.getString(cursor.getColumnIndex(DataBase.Usuarios.USUARIO)),
-                cursor.getString(cursor.getColumnIndex(DataBase.Usuarios.SENHA))
-        );
-
-        return model;
     }
 
     public long salvarUsuario(Usuarios usuario){
@@ -64,8 +53,19 @@ public class UsuarioDAO {
 
         if(cursor.moveToFirst()){
             return true;
-        }else
+        }else{
             return false;
+        }
+    }
+
+    public String IdTec(String usuario, String email, String senha){
+        //Pega o ID do Usuário logado
+        Cursor cursor = getDatabase().query(DataBase.Usuarios.TABELA, null, "(USUARIO = ? or EMAIL = ?) and SENHA = ?", new String[]{usuario, email, senha},null,null,null);
+        cursor.moveToFirst();
+        String id_tec = cursor.getString(cursor.getColumnIndex("id_web")).trim();
+        Log.i("ID_TEC",id_tec);
+
+        return id_tec;
     }
 
     public  void fechar(){

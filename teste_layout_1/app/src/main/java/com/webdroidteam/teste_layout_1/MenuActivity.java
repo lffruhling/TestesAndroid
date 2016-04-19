@@ -6,14 +6,17 @@ import java.util.Vector;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.TabHost;
 import android.widget.TabHost.TabContentFactory;
+import android.widget.Toast;
 
 import com.webdroidteam.teste_layout_1.adapter.ViewPagerAdapter;
 import com.webdroidteam.teste_layout_1.fragments.Concluidas;
@@ -71,11 +74,27 @@ public class MenuActivity extends FragmentActivity implements TabHost.OnTabChang
             // Define a Tab de acordo com o estado salvo
             mTabHost.setCurrentTabByTag(savedInstanceState.getString("tab"));
         }
+
         // Inicializa o ViewPager
         this.intialiseViewPager();
+
+        //Recebe parametro da tela de login
+        Intent intent = getIntent();
+        if(intent != null){
+            Bundle params = intent.getExtras();
+
+            if(params != null){
+                String id_tec = params.getString("ID_TEC");
+                //Toast.makeText(this, id_tec, Toast.LENGTH_LONG).show();
+                // Chama consulta ao Web-Service passando id do usuário;
+
+            }
+        }
+
     }
 
     protected void onSaveInstanceState(Bundle outState) {
+
         // salva a Tab selecionada
         outState.putString("tab", mTabHost.getCurrentTabTag());
         super.onSaveInstanceState(outState);
@@ -115,15 +134,19 @@ public class MenuActivity extends FragmentActivity implements TabHost.OnTabChang
 
     private static void AddTab(MenuActivity activity, TabHost tabHost,
                                TabHost.TabSpec tabSpec, TabInfo tabInfo) {
+
         // Attach uma Tab view factory para o spec
         tabSpec.setContent(activity.new TabFactory(activity));
         tabHost.addTab(tabSpec);
+        Log.i("LOG","Cria Aba");
     }
 
     public void onTabChanged(String tag) {
+
         // Avisa para o mViewPager qual a Tab que está ativa
         int pos = this.mTabHost.getCurrentTab();
         this.mViewPager.setCurrentItem(pos);
+        Log.i("LOG","Aba ativa");
     }
 
     @Override

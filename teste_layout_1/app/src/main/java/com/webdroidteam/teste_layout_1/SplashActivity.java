@@ -59,6 +59,7 @@ public class SplashActivity extends Activity {
             requestCatalog.enqueue(new Callback<ServiceCatalog>() {
                 @Override
                 public void onResponse(Call<ServiceCatalog> call, Response<ServiceCatalog> response) {
+                    usuarioDAO.limparBanco(); // Limpa o banco e remove o admin
                     if(!response.isSuccessful()){
                         Log.i(TAG,"ErroRRR de insucesso: "+response.code());
                     }else{
@@ -72,7 +73,6 @@ public class SplashActivity extends Activity {
                             usuario.setEmail(c.email);
                             usuario.setUsuario(c.usuario);
                             usuario.setSenha(c.senha);
-                            usuarioDAO.limparBanco(); // Limpa o banco
                             usuarioDAO.salvarUsuario(usuario); // Carrega logins
                             Log.i("OKKKKKK",String.format("%s: %s",c._id,c.nome));
                             i++;
@@ -88,7 +88,7 @@ public class SplashActivity extends Activity {
 
                 @Override
                 public void onFailure(Call<ServiceCatalog> call, Throwable t) {
-                    Log.e(TAG,"--------------Erro: "+t.getMessage());
+                    Log.e(TAG,"Erro: "+t.getMessage());
                 }
             });
 

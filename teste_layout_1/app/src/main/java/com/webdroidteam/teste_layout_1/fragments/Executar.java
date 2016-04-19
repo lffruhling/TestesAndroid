@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.webdroidteam.teste_layout_1.R;
@@ -20,6 +21,6 @@ public class Executar extends Fragment {
         }
 
         // Inflamos o layout executar.xml
-        return (RelativeLayout) inflater.inflate(R.layout.activity_executar, container, false);
+        return (LinearLayout) inflater.inflate(R.layout.activity_executar, container, false);
     }
 }
