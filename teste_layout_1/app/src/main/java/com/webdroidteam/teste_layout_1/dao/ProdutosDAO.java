@@ -29,6 +29,7 @@ public class ProdutosDAO {
     public long salvarProdutos(Produtos produtos){
         ContentValues valores = new ContentValues();
         valores.put(DataBase.Produtos.ID_PROD, produtos.getId_pro());
+        valores.put(DataBase.Produtos.ID_OS, produtos.getId_os());
         valores.put(DataBase.Produtos.NOME, produtos.getNome());
         valores.put(DataBase.Produtos.DESC, produtos.getDesc());
         valores.put(DataBase.Produtos.QUANT, produtos.getQuant());

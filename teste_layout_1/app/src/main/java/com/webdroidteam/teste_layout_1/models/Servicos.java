@@ -9,6 +9,7 @@ public class Servicos {
     public Integer _id;
     public String id_web;
     public String nome;
+    public String id_colab;
     public String serv;
     public String colab;
     public String obs;
@@ -18,10 +19,11 @@ public class Servicos {
 
     public List<Produtos> produtos;
 
-    public Servicos(Integer id, String id_web, String nome, String serv, String colab, String obs, String orc, String fot, String data, List<Produtos> produtos){
+    public Servicos(Integer id, String id_web, String nome, String id_colab, String serv, String colab, String obs, String orc, String fot, String data, List<Produtos> produtos){
         this._id = id;
         this.id_web = id_web;
         this.nome = nome;
+        this.id_colab = id_colab;
         this.serv = serv;
         this.colab = colab;
         this.obs = obs;
@@ -33,6 +35,14 @@ public class Servicos {
 
     public  Servicos(){
 
+    }
+
+    public String getId_colab() {
+        return id_colab;
+    }
+
+    public void setId_colab(String id_colab) {
+        this.id_colab = id_colab;
     }
 
     public Integer get_id() {

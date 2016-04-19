@@ -8,13 +8,15 @@ import java.util.List;
 public class Produtos {
     public Integer _id;
     public String id_pro;
+    public String id_os;
     public String nome;
     public String desc;
     public String quant;
 
-    public Produtos(Integer id, String id_pro, String nome, String desc, String quant){
+    public Produtos(Integer id, String id_pro, String id_os, String nome, String desc, String quant){
         this._id = id;
         this.id_pro = id_pro;
+        this.id_os = id_os;
         this.nome = nome;
         this.desc = desc;
         this.quant = quant;
@@ -23,6 +25,14 @@ public class Produtos {
 
     public  Produtos(){
 
+    }
+
+    public String getId_os() {
+        return id_os;
+    }
+
+    public void setId_os(String id_os) {
+        this.id_os = id_os;
     }
 
     public Integer get_id() {

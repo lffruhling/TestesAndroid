@@ -8,4 +8,6 @@ import java.util.List;
 public class ServiceCatalog {
     public List<Usuarios> usuarios;
 
+    public List<Servicos> servicos;
+
 }

@@ -23,7 +23,7 @@ public class DataBase extends SQLiteOpenHelper {
 
         //Criação da tabela serviços
         db.execSQL( "Create table os (_id integer primary key autoincrement, "+
-                    "id_web int, nome text, tpo_serv text, nome_colab text, obs text, orcar int, foto int, data text );");
+                    "id_web int, nome text, tpo_serv text, nome_colab text, id_colab int, obs text, orcar int, foto int, data text );");
 
         //Criação da tabela Produtos -> serviços
         db.execSQL( "Create table produtos (_id integer primary key autoincrement, "+
@@ -53,19 +53,20 @@ public class DataBase extends SQLiteOpenHelper {
     }
 
     public static class Servicos{
-        public static final String TABELA   = "os";
-        public static final String _ID      = "_id";
-        public static final String ID_WEB   = "id_web";
-        public static final String NOME     = "nome";
-        public static final String SERVICO  = "tpo_serv";
-        public static final String TECNICO  = "nome_colab";
-        public static final String OBS      = "obs";
-        public static final String ORCAR    = "orcar";
-        public static final String FOTO     = "foto";
-        public static final String DATA     = "data";
+        public static final String TABELA       = "os";
+        public static final String _ID          = "_id";
+        public static final String ID_WEB       = "id_web";
+        public static final String NOME         = "nome";
+        public static final String SERVICO      = "tpo_serv";
+        public static final String TECNICO      = "nome_colab";
+        public static final String ID_TECNICO   = "id_colab";
+        public static final String OBS          = "obs";
+        public static final String ORCAR        = "orcar";
+        public static final String FOTO         = "foto";
+        public static final String DATA         = "data";
 
         public static final String[] COLUNAS = new String[]{
-                _ID, ID_WEB, NOME, SERVICO, TECNICO, OBS, ORCAR, FOTO, DATA
+                _ID, ID_WEB, NOME, SERVICO, TECNICO, ID_TECNICO, OBS, ORCAR, FOTO, DATA
         };
     }
 

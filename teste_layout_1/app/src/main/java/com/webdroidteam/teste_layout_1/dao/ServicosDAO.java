@@ -34,6 +34,7 @@ public class ServicosDAO {
         valores.put(DataBase.Servicos.NOME, servicos.getNome());
         valores.put(DataBase.Servicos.SERVICO, servicos.getServ());
         valores.put(DataBase.Servicos.TECNICO, servicos.getColab());
+        valores.put(DataBase.Servicos.ID_TECNICO, servicos.getId_colab());
         valores.put(DataBase.Servicos.OBS, servicos.getObs());
         valores.put(DataBase.Servicos.ORCAR, servicos.getOrc());
         valores.put(DataBase.Servicos.FOTO, servicos.getFot());
