@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.webdroidteam.teste_layout_1.bodyExecutar.ExecutarOs">
+
+    <TextView
+        style="@style/txt_exec_os"
+        android:id="@+id/txt_exec_os_IdOs"
+        android:text="O.S: 01"/>
+
+    <TextView
+        style="@style/txt_exec_os"
+        android:id="@+id/txt_exec_os_Cliente"
+        android:layout_below="@+id/txt_exec_os_IdOs"
+        android:text="Cliente: Teste"/>
+
+    <TextView
+        style="@style/txt_exec_os"
+        android:id="@+id/txt_exec_os_Servico"
+        android:layout_below="@+id/txt_exec_os_Cliente"
+        android:text="Serviço: Tipo de serviço"/>
+
+    <TextView
+        style="@style/txt_exec_os"
+        android:id="@+id/txt_exec_os_end"
+        android:layout_below="@+id/txt_exec_os_Servico"
+        android:text="End.: Rua Teste"/>
+
+    <TextView
+        style="@style/txt_exec_os"
+        android:id="@+id/txt_exec_os_nro"
+        android:layout_below="@+id/txt_exec_os_end"
+        android:text="Nro.: 123"/>
+
+    <TextView
+        style="@style/txt_exec_os"
+        android:id="@+id/txt_exec_os_obs"
+        android:layout_below="@+id/txt_exec_os_nro"
+        android:text="Obs.: "/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/txt_exec_os_obs">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_footer_height"
+            android:id="@+id/btn_exec_os_voltar"
+            android:text="Voltar"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_footer_height"
+            android:id="@+id/btn_exec_os_iniciarOs"
+            android:text="Iniciar O.S."
+            android:layout_weight="1"/>
+    </LinearLayout>
+</RelativeLayout>

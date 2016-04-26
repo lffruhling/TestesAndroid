@@ -48,6 +48,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyOrcar.CriarOrcamento" />
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyOrcar.FimOrcamento" />
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyOrcar.Ass_Orcamento" />
     </application>
 
 </manifest>

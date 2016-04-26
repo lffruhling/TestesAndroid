@@ -10,4 +10,8 @@
     <string name="save_success">Usuário salvo com sucesso!</string>
     <string name="update_success">Usuário atualizado com sucesso!</string>
     <string name="save_error">Erro ao salvar usuário!</string>
+    <string name="termo_orc">Afirmo que orcei somente os itens necessários para o pleno funcionamento do equipamento e nada além do necessário.</string>
+    <string name="fim_orc">Orcamento finalizado e enviado com sucesso!</string>
+    <string name="termo_exec">Senhor Cliente, assine somente se o serviço foi efetuado como o solicitado.</string>
+    <string name="fim_exec">Orden de Serviço finalizada e enviada com sucesso!</string>
 </resources>

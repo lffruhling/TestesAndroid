@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.webdroidteam.teste_layout_1.bodyExecutar.ItemExecutar">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/img_item_exec_foto"
+        android:src="@drawable/executar_verde_128"
+        android:padding="8dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_item_exec_IdOs"
+        android:textSize="@dimen/texto_normal"
+        android:text="O.S: 01"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="62dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_item_exec_cliente"
+        android:layout_below="@+id/txt_item_exec_IdOs"
+        android:textSize="@dimen/texto_normal"
+        android:text="Cliente: Teste"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="62dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_item_exec_servico"
+        android:layout_below="@+id/txt_item_exec_cliente"
+        android:textSize="@dimen/texto_normal"
+        android:text="Serviço: Instalação de Internet"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_item_exec_data"
+        android:layout_below="@+id/txt_item_exec_servico"
+        android:textSize="@dimen/texto_normal"
+        android:text="Data Limite: 26/04/2018"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:id="@+id/txt_item_exec_linha"
+        android:layout_below="@+id/txt_item_exec_data"
+        android:background="@color/txt_linha"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>

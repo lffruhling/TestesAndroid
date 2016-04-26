@@ -35,12 +35,13 @@ public class LoginActivity extends Activity {
 
         helper = new UsuarioDAO(this);
 
-        SharedPreferences preferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
-        boolean conectado = preferences.getBoolean(MANTER_CONECTADO, false);
+        /*Para usar isto, primeiro ver como retornoar o id do usuário logado*/
+        //SharedPreferences preferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
+        //boolean conectado = preferences.getBoolean(MANTER_CONECTADO, false);
 
-        if (conectado){
-            abreMenu();
-        }
+        //if (conectado){
+        //    abreMenu();
+        //}
     }
 
     public void logar(View view){
@@ -82,16 +83,20 @@ public class LoginActivity extends Activity {
         String usuario = cpoUsuario.getText().toString();
         String senha = cpoSenha.getText().toString();
 
-        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-        String id_tec = helper.IdTec(usuario,usuario,senha);
-        //Envia para a tela de OS, qual o usuário logado
-        Bundle params = new Bundle();
-        params.putString("ID_TEC",id_tec);
-        intent.putExtras(params);
 
-        startActivity(intent);
-        setContentView(R.layout.activity_menu);
-        finish();
+
+        if ((usuario != null || !usuario.trim().equals("")) && (senha != null || !senha.trim().equals(""))) {
+            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+            String id_tec = helper.IdTec(usuario, usuario, senha);
+            //Envia para a tela de OS, qual o usuário logado
+            Bundle params = new Bundle();
+            params.putString("ID_TEC", id_tec);
+            intent.putExtras(params);
+
+            startActivity(intent);
+            setContentView(R.layout.activity_menu);
+            finish();
+        }
     }
 
     /*public void verificaLogin (View view){

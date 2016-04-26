@@ -4,9 +4,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.webdroidteam.teste_layout_1.models.Servicos;
 import com.webdroidteam.teste_layout_1.models.Usuarios;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Leonardo on 17/04/2016.
@@ -51,5 +55,17 @@ public class ServicosDAO {
         return getDatabase().delete(DataBase.Servicos.TABELA, null, null) > 0;
     }
 
+    public List<String> listarOrcar(){
+        //Lista Ordens de Serviços para orçar
+        List<String> osOrcar = new ArrayList<>();
+        //Cursor cursor = getDatabase().query(DataBase.Servicos.TABELA, null, "orcar = ?", new String[]{"1"},null,null,null);
+        Cursor cursor = getDatabase().query(DataBase.Servicos.TABELA, null, "orcar = 1", null,null,null,null);
+        cursor.moveToFirst();
+        while (cursor.moveToNext()) {
+            osOrcar.add(cursor.getString(cursor.getColumnIndex("id_web")).trim());
+        }
+        cursor.close();
+        return osOrcar;
+    }
 
 }
