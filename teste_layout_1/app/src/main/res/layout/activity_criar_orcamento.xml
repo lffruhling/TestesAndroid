@@ -58,6 +58,7 @@
             android:layout_height="wrap_content"
             android:text="Finalizar"
             android:id="@+id/btnFinalizar"
+            android:onClick="finalizar"
             android:layout_weight="1" />
     </LinearLayout>
 </RelativeLayout>

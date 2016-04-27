@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:2:1-50:12
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:2:1-59:12
 	package
 		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:3:5-46
 		INJECTED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml
@@ -36,7 +36,7 @@ ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layo
 	android:name
 		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:10:22-76
 application
-ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:12:5-48:19
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:12:5-57:19
 MERGED from [com.android.support:appcompat-v7:23.2.0] C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:23.2.0] C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:animated-vector-drawable:23.2.0] C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.0\AndroidManifest.xml:7:5-20
@@ -96,14 +96,50 @@ activity#com.webdroidteam.teste_layout_1.bodyOrcar.CriarOrcamento
 ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:45:9-62
 	android:name
 		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:45:19-59
-activity#com.webdroidteam.teste_layout_1.bodyOrcar.FimOrcamento
-ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:46:9-60
-	android:name
-		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:46:19-57
 activity#com.webdroidteam.teste_layout_1.bodyOrcar.Ass_Orcamento
-ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:47:9-70
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:46:9-61
 	android:name
-		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:47:19-58
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:46:19-58
+activity#com.webdroidteam.teste_layout_1.bodyOrcar.FimOrcamento
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:47:9-60
+	android:name
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:47:19-57
+activity#com.webdroidteam.teste_layout_1.bodyOrcar.AddItemOrc
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:48:9-58
+	android:name
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:48:19-55
+activity#com.webdroidteam.teste_layout_1.bodyConcluidas.ItemConcluida
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:49:9-66
+	android:name
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:49:19-63
+activity#com.webdroidteam.teste_layout_1.bodyExecutar.ItemExecutar
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:50:9-63
+	android:name
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:50:19-60
+activity#com.webdroidteam.teste_layout_1.bodyExecutar.ExecutarOs
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:51:9-61
+	android:name
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:51:19-58
+activity#com.webdroidteam.teste_layout_1.bodyExecutar.ProdutosOs
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:52:9-61
+	android:name
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:52:19-58
+activity#com.webdroidteam.teste_layout_1.bodyExecutar.ItemProdutoOs
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:53:9-64
+	android:name
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:53:19-61
+activity#com.webdroidteam.teste_layout_1.bodyExecutar.FotosOs
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:54:9-58
+	android:name
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:54:19-55
+activity#com.webdroidteam.teste_layout_1.bodyExecutar.AssExecutar
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:55:9-62
+	android:name
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:55:19-59
+activity#com.webdroidteam.teste_layout_1.bodyExecutar.FimExecutar
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:56:9-71
+	android:name
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:56:19-59
 uses-sdk
 INJECTED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.2.0] C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.0\AndroidManifest.xml:21:5-23:78

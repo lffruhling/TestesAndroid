@@ -57,6 +57,7 @@
             android:layout_height="match_parent"
             android:id="@+id/btn_ass_exec_voltar"
             android:text="Voltar"
+            android:onClick="voltar"
             android:layout_weight="1"/>
 
         <Button
@@ -64,6 +65,7 @@
             android:layout_height="match_parent"
             android:id="@+id/btn_ass_exec_finalizar"
             android:text="Enviar"
+            android:onClick="enviar_exec"
             android:layout_weight="1"/>
 
     </LinearLayout>

@@ -1,5 +1,6 @@
 package com.webdroidteam.teste_layout_1.bodyOrcar;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,11 @@ public class CriarOrcamento extends AppCompatActivity {
     }
 
     public void  voltar (View view){
+        finish();
+    }
+
+    public void finalizar(View view){
+        startActivity(new Intent(this, Ass_Orcamento.class));
         finish();
     }
 }

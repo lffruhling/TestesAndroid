@@ -9,16 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical" >
 
-    <!--<TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="A"
-        android:textSize="150sp"
-        android:textAppearance="?android:attr/textAppearanceLarge" /> -->
-
     <ListView
         android:id="@+id/lvListaOrc"
         android:layout_width="match_parent"

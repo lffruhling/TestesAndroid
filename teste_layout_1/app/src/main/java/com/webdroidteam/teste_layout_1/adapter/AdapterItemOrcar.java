@@ -68,7 +68,6 @@ public class AdapterItemOrcar extends BaseAdapter {
 
             itemHolder = new ItemSuporte();
             itemHolder.txtTitle = ((TextView) view.findViewById(R.id.txt_item_IdOs));
-            itemHolder.imgIcon = ((ImageView) view.findViewById(R.id.imgLogoOrc));
 
             /* Define os itens na view */
             view.setTag(itemHolder);
@@ -85,7 +84,6 @@ public class AdapterItemOrcar extends BaseAdapter {
         * */
         ItemOrcar item = itens.get(position);
         itemHolder.txtTitle.setText(item.getTexto());
-        itemHolder.imgIcon.setImageResource(item.getIconeRid());
 
         /*retorna a view com as informações*/
 
@@ -96,7 +94,6 @@ public class AdapterItemOrcar extends BaseAdapter {
     * Classe de suporte para os itens do layout
     * */
     private class ItemSuporte{
-        ImageView imgIcon;
         TextView txtTitle;
     }
 }

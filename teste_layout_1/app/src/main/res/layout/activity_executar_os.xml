@@ -55,6 +55,7 @@
             android:layout_height="@dimen/btn_footer_height"
             android:id="@+id/btn_exec_os_voltar"
             android:text="Voltar"
+            android:onClick="voltar"
             android:layout_weight="1"/>
 
         <Button
@@ -62,6 +63,7 @@
             android:layout_height="@dimen/btn_footer_height"
             android:id="@+id/btn_exec_os_iniciarOs"
             android:text="Iniciar O.S."
+            android:onClick="iniciar_os"
             android:layout_weight="1"/>
     </LinearLayout>
 </RelativeLayout>

@@ -47,13 +47,15 @@
             android:layout_height="match_parent"
             android:id="@+id/btn_ass_orc_voltar"
             android:text="Voltar"
+            android:onClick="voltar"
             android:layout_weight="1"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/btn_ass_orc_finalizar"
-            android:text="Finalizar"
+            android:id="@+id/btn_ass_orc_enviar"
+            android:text="Enviar"
+            android:onClick="enviar_orc"
             android:layout_weight="1"/>
 
     </LinearLayout>
