@@ -21,7 +21,6 @@ import com.webdroidteam.teste_layout_1.dao.ServicosDAO;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Orcar extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

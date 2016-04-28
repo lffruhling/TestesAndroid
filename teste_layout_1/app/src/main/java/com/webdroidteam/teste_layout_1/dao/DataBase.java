@@ -23,7 +23,7 @@ public class DataBase extends SQLiteOpenHelper {
 
         //Criação da tabela serviços
         db.execSQL( "Create table os (_id integer primary key autoincrement, "+
-                    "id_web int, nome text, tpo_serv text, nome_colab text, id_colab int, obs text, orcar int, foto int, data text );");
+                    "id_web int, nome text, tpo_serv text, nome_colab text, id_colab int, obs text, orcar int, foto int, data text, concluida int);");
 
         //Criação da tabela Produtos -> serviços
         db.execSQL( "Create table produtos (_id integer primary key autoincrement, "+

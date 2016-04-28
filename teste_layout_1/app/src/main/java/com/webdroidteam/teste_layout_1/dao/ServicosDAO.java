@@ -59,13 +59,53 @@ public class ServicosDAO {
         //Lista Ordens de Serviços para orçar
         List<String> osOrcar = new ArrayList<>();
         //Cursor cursor = getDatabase().query(DataBase.Servicos.TABELA, null, "orcar = ?", new String[]{"1"},null,null,null);
-        Cursor cursor = getDatabase().query(DataBase.Servicos.TABELA, null, "orcar = 1", null,null,null,null);
-        cursor.moveToFirst();
-        while (cursor.moveToNext()) {
-            osOrcar.add(cursor.getString(cursor.getColumnIndex("id_web")).trim());
+        Cursor cursor = getDatabase().query(DataBase.Servicos.TABELA, null, "(concluida != 1 or concluida is null or concluida = 0) and orcar = 1", null,null,null,null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+
+            for (int i = 0; i < cursor.getCount(); i++){
+                osOrcar.add(cursor.getString(cursor.getColumnIndex("id_web")).trim());
+            }
+            cursor.moveToNext();
         }
         cursor.close();
         return osOrcar;
+    }
+
+    public List<String> listarExec(){
+        //Lista Ordens de Serviços para Executar
+        List<String> osExecutar = new ArrayList<>();
+        //Cursor cursor = getDatabase().query(DataBase.Servicos.TABELA, null, "orcar = ?", new String[]{"1"},null,null,null);
+        Cursor cursor = getDatabase().query(DataBase.Servicos.TABELA, null, "(concluida != 1 or concluida is null or concluida = 0) and( orcar = 0 or orcar is null or orcar = '')", null,null,null,null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+
+            for (int i = 0; i < cursor.getCount(); i++){
+                osExecutar.add(cursor.getString(cursor.getColumnIndex("id_web")).trim());
+            }
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return osExecutar;
+    }
+
+    public List<String> listarConcluidas(){
+        //Lista Ordens de Serviços Concluidas
+        List<String> osConcluida = new ArrayList<>();
+        //Cursor cursor = getDatabase().query(DataBase.Servicos.TABELA, null, "orcar = ?", new String[]{"1"},null,null,null);
+        Cursor cursor = getDatabase().query(DataBase.Servicos.TABELA, null, "concluida = 1", null,null,null,null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+
+            for (int i = 0; i < cursor.getCount(); i++){
+                osConcluida.add(cursor.getString(cursor.getColumnIndex("id_web")).trim());
+            }
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return osConcluida;
     }
 
 }

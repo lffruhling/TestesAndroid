@@ -12,6 +12,10 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.webdroidteam.teste_layout_1.R;
+import com.webdroidteam.teste_layout_1.dao.ServicosDAO;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Concluidas extends Fragment {
 
@@ -24,7 +28,11 @@ public class Concluidas extends Fragment {
 
         View rootView = (LinearLayout) inflater.inflate(R.layout.activity_concluidas, container, false);
 
-        String[] atividades = new String[]{"Concluídas 1", "Concluídas 2"};
+        ServicosDAO servicosDAO = new ServicosDAO(getActivity());
+
+        List<String> atividades = new ArrayList<>(servicosDAO.listarConcluidas());
+
+        //String[] atividades = new String[]{"Concluídas 1", "Concluídas 2"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,atividades);
 

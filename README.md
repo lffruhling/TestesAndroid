@@ -11,6 +11,9 @@ teste_retrofit_3 = Testes com o recebimento de dados Json do Web service com a A
  https://www.youtube.com/watch?v=gr-ZVoFGyMo
  https://www.youtube.com/watch?v=FoX_WJ_bS8c
  
+ https://www.youtube.com/watch?v=iuJfiQtQa0g
+ https://www.youtube.com/watch?v=kFJgy_PPtqU
+ 
  fragment
  http://stackoverflow.com/questions/22512833/create-listview-in-fragment-android
   
