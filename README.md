@@ -26,3 +26,6 @@ teste_retrofit_3 = Testes com o recebimento de dados Json do Web service com a A
  <CAMERA>
  http://pt.slideshare.net/marciopalheta/captulo-07-acesso-a-cmera-e-arquivos-armazenados-no-device
  http://www.klebermota.eti.br/2012/08/23/usando-a-camera-no-android-traducao-da-documentacao-oficial/
+ 
+ <Assinatura lib usada Signature pad>
+ 
