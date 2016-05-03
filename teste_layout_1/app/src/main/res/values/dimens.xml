@@ -3,5 +3,5 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="btn_footer_height">45dp</dimen>
-    <dimen name="texto_normal">22sp</dimen>
+    <dimen name="texto_normal">18sp</dimen>
 </resources>

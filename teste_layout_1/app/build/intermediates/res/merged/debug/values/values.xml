@@ -183,7 +183,7 @@
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
-    <dimen name="texto_normal">22sp</dimen>
+    <dimen name="texto_normal">18sp</dimen>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_bar_spinner" type="id"/>
@@ -222,6 +222,7 @@
     <string name="confSenha">Informe as duas senhas iguas!</string>
     <string name="cpoVazio">Campo de preencimento obrigatório!</string>
     <string name="errorLogin">Usuário ou senha inválidos!</string>
+    <string name="external_dir">GetSignature</string>
     <string name="fim_exec">Orden de Serviço finalizada e enviada com sucesso!</string>
     <string name="fim_orc">Orcamento finalizado e enviado com sucesso!</string>
     <string name="save_error">Erro ao salvar usuário!</string>

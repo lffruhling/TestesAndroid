@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.webdroidteam.teste_layout_1.R;
+import com.webdroidteam.teste_layout_1.SignActivity;
 
 public class AssExecutar extends AppCompatActivity {
 
@@ -22,5 +23,9 @@ public class AssExecutar extends AppCompatActivity {
     public void enviar_exec(View view){
         startActivity(new Intent(this, FimExecutar.class));
         finish();
+    }
+
+    public void assinarExec(View view){
+        startActivity(new Intent(this, SignActivity.class));
     }
 }

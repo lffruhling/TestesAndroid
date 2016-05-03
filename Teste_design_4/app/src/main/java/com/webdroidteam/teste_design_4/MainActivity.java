@@ -14,6 +14,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.TabHost;
 import android.widget.TabHost.TabContentFactory;
+import android.widget.Toast;
 
 
 import java.util.HashMap;
@@ -134,5 +135,7 @@ public class MainActivity extends FragmentActivity implements TabHost.OnTabChang
     public void onPageScrollStateChanged(int state) {
 
     }
+
+
 
 }

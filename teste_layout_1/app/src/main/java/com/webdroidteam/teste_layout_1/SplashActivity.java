@@ -43,6 +43,7 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         usuarioDAO = new UsuarioDAO(this);
+
         //Teste de Conexão
         adminWifi = (WifiManager) SplashActivity.this.getSystemService(Context.WIFI_SERVICE);
 

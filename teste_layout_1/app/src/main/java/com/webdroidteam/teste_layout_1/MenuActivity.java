@@ -6,14 +6,21 @@ import java.util.Vector;
 
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TabHost;
 import android.widget.TabHost.TabContentFactory;
 import android.widget.Toast;
@@ -28,6 +35,7 @@ import com.webdroidteam.teste_layout_1.fragments.Orcar;
 import com.webdroidteam.teste_layout_1.models.Produtos;
 import com.webdroidteam.teste_layout_1.models.ServiceCatalog;
 import com.webdroidteam.teste_layout_1.models.Servicos;
+import com.webdroidteam.teste_layout_1.util.Mensagem;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -188,6 +196,7 @@ public class MenuActivity extends FragmentActivity implements TabHost.OnTabChang
     }
 
     private void initialiseTabHost(Bundle args) {
+
         mTabHost = (TabHost) findViewById(android.R.id.tabhost);
         mTabHost.setup();
         TabInfo tabInfo = null;
@@ -236,5 +245,32 @@ public class MenuActivity extends FragmentActivity implements TabHost.OnTabChang
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_menu_filtro:
+                Toast.makeText(getApplicationContext(), "speaking....", Toast.LENGTH_LONG).show();
+                return false;
+            case R.id.action_menu_sinc:
+                Toast.makeText(getApplicationContext(), "stopping....", Toast.LENGTH_LONG).show();
+                return false;
+            default:
+                break;
+        }
+
+        return false;
+    }
+
+    public void teste (View view){
+        Toast.makeText(this, "teste", Toast.LENGTH_SHORT).show();
     }
 }

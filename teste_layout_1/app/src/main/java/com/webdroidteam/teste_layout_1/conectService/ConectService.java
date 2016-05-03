@@ -10,7 +10,7 @@ import retrofit2.http.Query;
  * Created by Leonardo on 06/04/2016.
  */
 public interface ConectService {
-    public static final String BASE_URL = "http://infomaster.pe.hu/api/api.php/";
+    public static final String BASE_URL = "http://meugerente.esy.es/api/api.php/";
 
     @GET("usuarios")
     Call<ServiceCatalog> listCatalog();

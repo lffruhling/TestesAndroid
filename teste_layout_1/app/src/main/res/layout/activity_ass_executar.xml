@@ -39,11 +39,13 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:id="@+id/img_ass_exec_ass"
         android:layout_below="@+id/txt_ass_exec_termo"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="15dp"
+        android:onClick="assinarExec"
+        android:background="@color/fundo"/>
 
     <LinearLayout
         android:layout_width="match_parent"

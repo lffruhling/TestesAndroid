@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:2:1-38:12
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:2:1-41:12
 	package
 		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:3:5-45
 		INJECTED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banc
 		INJECTED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml
 application
-ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:5:5-36:19
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:5:5-39:19
 MERGED from [com.android.support:appcompat-v7:23.2.0] C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:23.2.0] C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:animated-vector-drawable:23.2.0] C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.0\AndroidManifest.xml:7:5-20
@@ -43,7 +43,7 @@ MERGED from [com.android.support:support-v4:23.2.0] C:\Users\Leonardo\Documents\
 	android:theme
 		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:10:9-40
 activity#com.webdroidteam.teste_banco_2.MainActivity
-ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:11:9-13:40
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:11:9-13:41
 	android:label
 		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:13:13-38
 	android:name
@@ -65,23 +65,27 @@ ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banc
 	android:name
 		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:20:27-74
 activity#com.webdroidteam.teste_banco_2.CadUsuario
-ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:23:9-25:50
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:23:9-25:51
 	android:label
 		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:25:13-48
 	android:name
 		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:24:13-39
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:26:13-28:56
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:27:9-29:53
 	android:value
-		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:28:17-54
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:29:13-50
 	android:name
-		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:27:17-63
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:28:13-59
 activity#com.webdroidteam.teste_banco_2.ListUsuariosActivity
-ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:29:9-35:20
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:31:9-37:20
 	android:label
-		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:31:13-37
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:33:13-37
 	android:name
-		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:30:13-49
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:32:13-49
+activity#com.webdroidteam.teste_banco_2.TesteActivity
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:38:9-60
+	android:name
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml:38:19-48
 uses-sdk
 INJECTED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.2.0] C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_banco_2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.0\AndroidManifest.xml:21:5-23:78

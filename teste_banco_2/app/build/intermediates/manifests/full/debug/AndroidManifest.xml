@@ -41,6 +41,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity android:name="com.webdroidteam.teste_banco_2.TesteActivity" />
     </application>
 
 </manifest>

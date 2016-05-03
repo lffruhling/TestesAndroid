@@ -49,7 +49,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.webdroidteam.teste_layout_1.bodyOrcar.CriarOrcamento" />
-        <activity android:name="com.webdroidteam.teste_layout_1.bodyOrcar.Ass_Orcamento" />
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyOrcar.AssOrcamento" />
         <activity android:name="com.webdroidteam.teste_layout_1.bodyOrcar.FimOrcamento" />
         <activity android:name="com.webdroidteam.teste_layout_1.bodyOrcar.AddItemOrc" />
         <activity android:name="com.webdroidteam.teste_layout_1.bodyConcluidas.ItemConcluida" />
@@ -60,6 +60,7 @@
         <activity android:name="com.webdroidteam.teste_layout_1.bodyExecutar.FotosOs" />
         <activity android:name="com.webdroidteam.teste_layout_1.bodyExecutar.AssExecutar" />
         <activity android:name="com.webdroidteam.teste_layout_1.bodyExecutar.FimExecutar" />
+        <activity android:name="com.webdroidteam.teste_layout_1.SignActivity" />
     </application>
 
 </manifest>

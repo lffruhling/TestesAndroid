@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.webdroidteam.teste_banco_2.util.Mensagem;
 
@@ -50,5 +51,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void teste(View view){
+        startActivity(new Intent(this, TesteActivity.class));
     }
 }

@@ -14,4 +14,5 @@
     <string name="fim_orc">Orcamento finalizado e enviado com sucesso!</string>
     <string name="termo_exec">Senhor Cliente, assine somente se o serviço foi efetuado como o solicitado.</string>
     <string name="fim_exec">Orden de Serviço finalizada e enviada com sucesso!</string>
+    <string name="external_dir">GetSignature</string>
 </resources>

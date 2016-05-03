@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/linearLayout1"
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent">
+        <Button
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="Cancelar"
+            android:layout_width="0dp"
+            android:id="@+id/btn_cancel" />
+        <Button
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="Limpar"
+            android:layout_width="0dp"
+            android:id="@+id/btn_clear" />
+        <Button
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="Salvar"
+            android:layout_width="0dp"
+            android:id="@+id/btn_save" />
+    </LinearLayout>
+    <TableLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/tableLayout1">
+            <TextView
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:text="Pressione e arraste seu dedo para assinar digitalmente."
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent" />
+    </TableLayout>
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:orientation="vertical"/>
+</LinearLayout>

@@ -20,7 +20,7 @@ public class CriarOrcamento extends AppCompatActivity {
     }
 
     public void finalizar(View view){
-        startActivity(new Intent(this, Ass_Orcamento.class));
+        startActivity(new Intent(this, AssOrcamento.class));
         finish();
     }
 }

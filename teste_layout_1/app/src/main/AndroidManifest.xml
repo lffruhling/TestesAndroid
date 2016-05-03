@@ -43,7 +43,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".bodyOrcar.CriarOrcamento" />
-        <activity android:name=".bodyOrcar.Ass_Orcamento" />
+        <activity android:name=".bodyOrcar.AssOrcamento" />
         <activity android:name=".bodyOrcar.FimOrcamento" />
         <activity android:name=".bodyOrcar.AddItemOrc" />
         <activity android:name=".bodyConcluidas.ItemConcluida" />
@@ -53,7 +53,8 @@
         <activity android:name=".bodyExecutar.ItemProdutoOs" />
         <activity android:name=".bodyExecutar.FotosOs" />
         <activity android:name=".bodyExecutar.AssExecutar" />
-        <activity android:name=".bodyExecutar.FimExecutar"></activity>
+        <activity android:name=".bodyExecutar.FimExecutar" />
+        <activity android:name=".SignActivity"></activity>
     </application>
 
 </manifest>
