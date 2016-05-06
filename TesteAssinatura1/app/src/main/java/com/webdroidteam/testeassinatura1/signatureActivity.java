@@ -1,5 +1,6 @@
 package com.webdroidteam.testeassinatura1;
 
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.Activity;
@@ -24,9 +25,11 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Calendar;
@@ -94,10 +97,20 @@ public class signatureActivity extends AppCompatActivity {
                     mSignature.save(mView);
                     Bundle b = new Bundle();
                     b.putString("status", "done");
+                    b.putSerializable("IMG", new SerializaImg(mBitmap));
                     Intent intent = new Intent();
                     intent.putExtras(b);
-                    setResult(RESULT_OK,intent);
+                    //setResult(RESULT_OK,intent);
+
+                    // envia intent com a foto
+                    Intent i = new Intent(signatureActivity.this, MainActivity.class);
+                    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+                    mBitmap.compress(Bitmap.CompressFormat.PNG, 50, bs);
+                    i.putExtra("byteArray", bs.toByteArray());
+                    setResult(RESULT_OK,i);
+                    startActivity(i);
                     finish();
+
                 }
             }
         });

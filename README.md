@@ -29,3 +29,7 @@ teste_retrofit_3 = Testes com o recebimento de dados Json do Web service com a A
  
  <Assinatura lib usada Signature pad>
  
+ 
+ <Borda imageview>
+ http://stackoverflow.com/questions/3263611/border-for-an-image-view-in-android
+ 

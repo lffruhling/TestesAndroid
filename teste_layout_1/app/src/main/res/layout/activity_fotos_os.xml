@@ -16,32 +16,17 @@
         android:id="@+id/lin_fotos_os_fotos">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            style="@style/img_fotos"
             android:id="@+id/imf_fotos_os_f1"
-            android:background="@color/fundo"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:src="@drawable/foto_128"
-            android:onClick="tiraFoto"/>
+            android:tag="img1"/>
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            style="@style/img_fotos"
             android:id="@+id/imf_fotos_os_f2"
-            android:background="@color/fundo"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:src="@drawable/foto_128"
-            android:onClick="tiraFoto"/>
+            android:tag="img2"/>
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            style="@style/img_fotos"
             android:id="@+id/imf_fotos_os_f3"
-            android:background="@color/fundo"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:src="@drawable/foto_128"
-            android:onClick="tiraFoto"/>
+            android:tag="img3"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

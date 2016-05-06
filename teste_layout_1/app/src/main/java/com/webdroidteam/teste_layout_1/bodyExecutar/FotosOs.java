@@ -18,6 +18,7 @@ public class FotosOs extends AppCompatActivity {
 
     private static final int FAZER_FOTO = 123;
     private String localArquivo;
+    public String nomeComponente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,12 @@ public class FotosOs extends AppCompatActivity {
         finish();
     }
 
-    public void tiraFoto(View view){
+    public void chamaCaptura (View view){
+        nomeComponente = view.getTag().toString();
+        tiraFoto();
+    }
+
+    public void tiraFoto(){
         localArquivo = Environment.getExternalStorageState()+"/"+ System.currentTimeMillis()+".jpg";
         File arquivo = new File(localArquivo);
 
@@ -57,8 +63,18 @@ public class FotosOs extends AppCompatActivity {
                 Bitmap img = (Bitmap) bundle.get("data");
 
                /*Seta foto no imageview do layout.xml*/
-                ImageView iv = (ImageView) findViewById(R.id.imf_fotos_os_f1);
-                iv.setImageBitmap(img);
+                ImageView iv1 = (ImageView) findViewById(R.id.imf_fotos_os_f1);
+                ImageView iv2 = (ImageView) findViewById(R.id.imf_fotos_os_f2);
+                ImageView iv3 = (ImageView) findViewById(R.id.imf_fotos_os_f3);
+
+                if((nomeComponente).equals(iv1.getTag())){
+                    iv1.setImageBitmap(img);
+                }else if((nomeComponente).equals(iv2.getTag())){
+                    iv2.setImageBitmap(img);
+                }else if((nomeComponente).equals(iv3.getTag())){
+                    iv3.setImageBitmap(img);
+                }
+
             }
         }
     }

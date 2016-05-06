@@ -31,12 +31,16 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:padding="10dp"
+        android:scaleType="centerCrop"
+        android:cropToPadding="true"
         android:id="@+id/img_ass_orc_ass"
         android:layout_below="@+id/txt_ass_orc_termo"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="15dp"
         android:onClick="assinarOrc"
-        android:background="@color/fundo"/>
+        android:background="@drawable/border_image"
+        android:tag="img_ass_orc"/>
 
     <LinearLayout
         android:layout_width="match_parent"

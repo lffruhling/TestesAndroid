@@ -29,13 +29,20 @@ public class MainActivity extends AppCompatActivity {
     private static final int FAZER_FOTO = 123;
     private String localArquivo;
 
+    public String nome = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    public void tiraFoto(View view){
+    public void nomeComponente(View view){
+        nome = view.getTag().toString();
+        Toast.makeText(this, nome, Toast.LENGTH_LONG).show();
+        tiraFoto();
+    }
+
+    public void tiraFoto(){
         localArquivo = Environment.getExternalStorageState()+"/"+ System.currentTimeMillis()+".jpg";
         File arquivo = new File(localArquivo);
 
@@ -58,10 +65,21 @@ public class MainActivity extends AppCompatActivity {
                 Bitmap img = (Bitmap) bundle.get("data");
 
                /*Seta foto no imageview do layout.xml*/
-                ImageView iv = (ImageView) findViewById(R.id.imgView);
-                iv.setImageBitmap(img);
+                ImageView iv1 = (ImageView) findViewById(R.id.imgView1);
+                ImageView iv2 = (ImageView) findViewById(R.id.imgView2);
+                ImageView iv3 = (ImageView) findViewById(R.id.imgView3);
+
+                if ((nome).equals(iv1.getTag())){
+                    iv1.setImageBitmap(img);
+                }else if ((nome).equals(iv2.getTag())){
+                    iv2.setImageBitmap(img);
+                }else if ((nome).equals(iv3.getTag())){
+                    iv3.setImageBitmap(img);
+                }
             }
         }
+
+
 
         /*if(requestCode == FAZER_FOTO){
             if (resultCode == Activity.RESULT_OK){

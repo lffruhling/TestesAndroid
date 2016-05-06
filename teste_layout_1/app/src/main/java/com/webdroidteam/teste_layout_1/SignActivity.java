@@ -21,11 +21,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.webdroidteam.teste_layout_1.bodyExecutar.AssExecutar;
+import com.webdroidteam.teste_layout_1.bodyOrcar.AssOrcamento;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.Serializable;
 import java.util.Calendar;
 
 public class SignActivity extends AppCompatActivity {
@@ -42,10 +48,15 @@ public class SignActivity extends AppCompatActivity {
 
     private String uniqueId;
 
+    public int callingActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign);
+
+        //recebe "id da activity"
+        callingActivity = getIntent().getIntExtra("calling-activity", 0);
 
         tempDir = Environment.getExternalStorageDirectory() + "/" + getResources().getString(R.string.external_dir) + "/";
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
@@ -91,7 +102,30 @@ public class SignActivity extends AppCompatActivity {
                     Intent intent = new Intent();
                     intent.putExtras(b);
                     setResult(RESULT_OK,intent);
+                    // envia intent com a foto
+                    switch (callingActivity) {
+                        case 1001:
+                            Intent i1 = new Intent(SignActivity.this, AssExecutar.class);
+                            ByteArrayOutputStream bs1 = new ByteArrayOutputStream();
+                            mBitmap.compress(Bitmap.CompressFormat.PNG, 50, bs1);
+                            i1.putExtra("byteArray", bs1.toByteArray());
+                            setResult(RESULT_OK,i1);
+                            startActivity(i1);
+                            break;
+                        case 1002:
+                            Intent i2 = new Intent(SignActivity.this, AssOrcamento.class);
+                            ByteArrayOutputStream bs2 = new ByteArrayOutputStream();
+                            mBitmap.compress(Bitmap.CompressFormat.PNG, 50, bs2);
+                            i2.putExtra("byteArray", bs2.toByteArray());
+                            setResult(RESULT_OK,i2);
+                            startActivity(i2);
+                            break;
+                    }
+
+
+
                     finish();
+
                 }
             }
         });
@@ -231,6 +265,9 @@ public class SignActivity extends AppCompatActivity {
                 mFileOutStream.flush();
                 mFileOutStream.close();
                 String url = MediaStore.Images.Media.insertImage(getContentResolver(), mBitmap, "title", null);
+                /*teste sign*/
+                ImageView iv1 = (ImageView) findViewById(R.id.img_ass_orc_ass);
+                //iv1.setImageBitmap(mBitmap);
                 Log.v("log_tag","url: " + url);
                 //In case you want to delete the file
                 //boolean deleted = mypath.delete();
