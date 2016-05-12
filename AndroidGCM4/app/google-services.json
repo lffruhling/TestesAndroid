@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "1013718261627",
+    "project_id": "androidgcm4-1309"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013718261627:android:8ee91008f5ab5bcc",
+        "android_client_info": {
+          "package_name": "com.example.leonardo.androidgcm4"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU2M_yMb6IktsanZv0OkXn71EolZopXSs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
