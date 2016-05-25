@@ -4,13 +4,26 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.webdroidteam.teste_layout_1.SendService.RCadId;
+import com.webdroidteam.teste_layout_1.SendService.SendDeviceId;
+import com.webdroidteam.teste_layout_1.conectService.ApiFactory;
+import com.webdroidteam.teste_layout_1.conectService.ConectService;
 import com.webdroidteam.teste_layout_1.dao.UsuarioDAO;
+import com.webdroidteam.teste_layout_1.models.ServiceCatalog;
+import com.webdroidteam.teste_layout_1.preferences.UsuarioPreferences;
 import com.webdroidteam.teste_layout_1.util.Mensagem;
 import android.support.v7.widget.AppCompatCheckBox;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Leonardo on 30/03/2016.
@@ -92,6 +105,31 @@ public class LoginActivity extends Activity {
             Bundle params = new Bundle();
             params.putString("ID_TEC", id_tec);
             intent.putExtras(params);
+
+            UsuarioPreferences usuarioPreferences = new UsuarioPreferences(this);
+            usuarioPreferences.setIdUser(id_tec);
+
+            SendDeviceId sendDeviceId = new SendDeviceId(usuarioPreferences.getIdUser(), usuarioPreferences.getToken());
+
+            Call<RCadId> ResponseCadId = ApiFactory.conectService().postIdDevice(sendDeviceId);
+
+        ResponseCadId.enqueue(new Callback<RCadId>() {
+            @Override
+            public void onResponse(Call<RCadId> call, Response<RCadId> response) {
+                if(!response.isSuccessful()){
+                    Log.i("POST","ErroRRR de insucesso: "+response.code());
+                }else{
+                    Log.i("POST","CADASTRADO COM SUCESSO: "+response.code());
+                    RCadId catalog = response.body();
+                    Log.i("POST","Resposta "+catalog.getStatus());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RCadId> call, Throwable t) {
+
+            }
+        });
 
             startActivity(intent);
             setContentView(R.layout.activity_menu);

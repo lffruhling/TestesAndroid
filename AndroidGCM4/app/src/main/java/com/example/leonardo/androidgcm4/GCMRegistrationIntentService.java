@@ -41,7 +41,7 @@ public class GCMRegistrationIntentService extends IntentService{
             InstanceID instanceID = InstanceID.getInstance(getApplicationContext());
 
             //Busca o token da instance id
-
+                                        //getString(R.string.gcm_defaultSenderId) ou o id do projeto gerado no console do google
             token = instanceID.getToken(getString(R.string.gcm_defaultSenderId), GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
 
             // Exibindo o token no log para que possamos copiá-lo para enviar notificações push

@@ -1,12 +1,14 @@
 package com.webdroidteam.teste_layout_1;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +16,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.webdroidteam.teste_layout_1.GCM.GCMRegistrationIntentService;
 import com.webdroidteam.teste_layout_1.conectService.ConectService;
 import com.webdroidteam.teste_layout_1.dao.DataBase;
 import com.webdroidteam.teste_layout_1.dao.UsuarioDAO;
@@ -33,6 +38,18 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SplashActivity extends Activity {
+    /*
+    * Server API Key help
+    * AIzaSyAlx7QtwtutZG0Kx0klesXzhB2Q2310k08
+    * Sender ID help
+    * 711874135734
+    *
+    * GCM Inicio
+    * */
+
+    //Criação do broadcast receiver para o registro do gcm
+    private BroadcastReceiver mRegistrationBroadcastReceiver;
+
     WifiManager adminWifi;
     private static final String TAG = "LOG-LEO";
     private Usuarios usuario;
@@ -42,6 +59,58 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        //GCM
+        //Inicializando nosso broadcast receiver
+        mRegistrationBroadcastReceiver = new BroadcastReceiver() {
+            // Quando recebe a transmissão
+            // Estamos enviando a transmissão da GCM RegistrationIntentService
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                //Se o broadcast recebido for de sucesso
+                //Siginifica que o dispositivo foi registrado com sucesso
+                if(intent.getAction().equals(GCMRegistrationIntentService.REGISTRATION_SUCESS)){
+                    //Busca o registro do tokem para a intent
+                    String token = intent.getStringExtra("token");
+                    //Exibe um Toast com o valor do token
+                    Toast.makeText(getApplicationContext(), "Registration token: " + token, Toast.LENGTH_LONG).show();
+
+                    //se a intent não obteve sucesso de registro, exibe o erro
+                }else if(intent.getAction().equals(GCMRegistrationIntentService.REGISTRATION_ERROR)){
+                    Toast.makeText(getApplicationContext(), "GCM registration error!", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Error occurred", Toast.LENGTH_LONG).show();
+                }
+            }
+
+        };
+
+        //Checa o play service se está disponível ou não
+        int resulCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
+
+        //Caso a play service não esteja disponível
+        if(ConnectionResult.SUCCESS != resulCode){
+            //Se a play service é suportado mas não está instalado
+            if(GooglePlayServicesUtil.isUserRecoverableError(resulCode)){
+                //Exibe mensagem que o play service não está instalado
+                Toast.makeText(getApplicationContext(), "O serviço Google Play Service não está instalado no seu dispositvo", Toast.LENGTH_LONG).show();
+                GooglePlayServicesUtil.showErrorNotification(resulCode, getApplicationContext());
+
+                //Se o play service não é suportado
+                //Exibe a mensagem abaxio
+            }else{
+                Toast.makeText(getApplicationContext(), "Este dispositivo não suporta Google Play service", Toast.LENGTH_LONG).show();
+            }
+
+            //Se a Play service está disponível
+        }else{
+            //Inicia intet de registro do dispositivo
+            Intent intent = new Intent(this, GCMRegistrationIntentService.class);
+            startService(intent);
+        }
+
+        //Registra o receiver no retorno para a activity
+
         usuarioDAO = new UsuarioDAO(this);
 
         //Teste de Conexão
@@ -202,5 +271,13 @@ public class SplashActivity extends Activity {
         setMobileDataEnabledMethod.setAccessible(true);
 
         setMobileDataEnabledMethod.invoke(iConnectivityManager, enabled);
+    }
+
+    //GCM
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.w("MainActivity","onResume");
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mRegistrationBroadcastReceiver);
     }
 }

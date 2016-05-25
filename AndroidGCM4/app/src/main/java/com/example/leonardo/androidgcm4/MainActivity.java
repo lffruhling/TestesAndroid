@@ -52,6 +52,7 @@ Server API Key
 
         };
 
+
         //Checa o play service se está disponível ou não
         int resulCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
 

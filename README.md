@@ -35,4 +35,5 @@ teste_retrofit_3 = Testes com o recebimento de dados Json do Web service com a A
  
 <GCM GOOGLE>
 https://www.simplifiedcoding.net/android-push-notification-using-gcm-tutorial/
+https://www.youtube.com/watch?v=Wo4lZ72NNN4
  
