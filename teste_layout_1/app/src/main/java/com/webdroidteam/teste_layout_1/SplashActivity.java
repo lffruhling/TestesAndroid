@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.gson.GsonBuilder;
 import com.webdroidteam.teste_layout_1.GCM.GCMRegistrationIntentService;
 import com.webdroidteam.teste_layout_1.conectService.ConectService;
 import com.webdroidteam.teste_layout_1.dao.DataBase;
@@ -109,10 +110,6 @@ public class SplashActivity extends Activity {
             startService(intent);
         }
 
-        //Registra o receiver no retorno para a activity
-
-        usuarioDAO = new UsuarioDAO(this);
-
         //Teste de Conexão
         adminWifi = (WifiManager) SplashActivity.this.getSystemService(Context.WIFI_SERVICE);
 
@@ -120,20 +117,28 @@ public class SplashActivity extends Activity {
             //Toast.makeText(SplashActivity.this,"Entrou", Toast.LENGTH_LONG).show();
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(ConectService.BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
+
+                    .addConverterFactory(
+                            GsonConverterFactory.create(new GsonBuilder()
+                                    .excludeFieldsWithoutExposeAnnotation()
+                                    .create()))
+                   // .addConverterFactory(GsonConverterFactory.create())
+
                     .build();
 
             ConectService service = retrofit.create(ConectService.class);
+
             Call<ServiceCatalog> requestCatalog = service.listCatalog();
 
             requestCatalog.enqueue(new Callback<ServiceCatalog>() {
                 @Override
                 public void onResponse(Call<ServiceCatalog> call, Response<ServiceCatalog> response) {
-                    usuarioDAO.limparBanco(); // Limpa o banco e remove o admin
+
                     if(!response.isSuccessful()){
                         Log.i(TAG,"ErroRRR de insucesso: "+response.code());
                     }else{
                         //Requisição com sucesso
+                        Log.i("OKKKKKK",response.body().toString());
                         ServiceCatalog catalog = response.body();
                         Integer i = 0;
                         for(Usuarios c : catalog.usuarios){
@@ -143,7 +148,8 @@ public class SplashActivity extends Activity {
                             usuario.setEmail(c.email);
                             usuario.setUsuario(c.usuario);
                             usuario.setSenha(c.senha);
-                            usuarioDAO.salvarUsuario(usuario); // Carrega logins
+                            usuario.save();
+//                            usuarioDAO.salvarUsuario(usuario); // Carrega logins
                             Log.i("OKKKKKK",String.format("%s: %s",c._id,c.nome));
                             i++;
                             Log.i("Array: ", i.toString());

@@ -1,11 +1,17 @@
 package com.webdroidteam.teste_layout_1.models;
 
+import android.graphics.AvoidXfermode;
+
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Table;
+
 import java.util.List;
 
 /**
  * Created by Leonardo on 17/04/2016.
  */
-public class Produtos {
+@Table(name = "tb_produtos")
+public class Produtos extends Model{
     public Integer _id;
     public String id_pro;
     public String id_os;
@@ -24,7 +30,7 @@ public class Produtos {
     }
 
     public  Produtos(){
-
+        super();
     }
 
     public String getId_os() {

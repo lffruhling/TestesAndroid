@@ -18,19 +18,22 @@ public class DataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //Criação da tabela usuário
-        db.execSQL( "Create table usuarios (_id integer primary key autoincrement, "+
-                "id_web text, nome text not null, email text, usuario text, senha text not null);");
-
-        //Criação da tabela serviços
-        db.execSQL( "Create table os (_id integer primary key autoincrement, "+
-                    "id_web int, nome text, tpo_serv text, nome_colab text, id_colab int, obs text, orcar int, foto int, data text, concluida int);");
-
-        //Criação da tabela Produtos -> serviços
-        db.execSQL( "Create table produtos (_id integer primary key autoincrement, "+
-                    "id_prod_web int, id_os text, nome text, desc text, quant int);");
-
-        // Cadastra usuário padrão
-        db.execSQL("insert into usuarios (nome, usuario, senha) VALUES ('ADMIN', 'admin', '123');");
+//        db.execSQL( "Create table usuarios (_id integer primary key autoincrement, "+
+//                "id_web text, nome text not null, email text, usuario text, senha text not null);");
+//
+//        //Criação da tabela serviços
+//        db.execSQL( " Create table os (_id integer primary key autoincrement,   "+
+//                    " id_web int, nome text, tpo_serv text, nome_colab text,    "+
+//                    " id_colab int, obs text, orcar int, foto int, data text,   "+
+//                    " concluida int, obsAnd text, foto1 text, foto2 text,       "+
+//                    " foto3 text, asinatura text, cliAusente boolean);"         );
+//
+//        //Criação da tabela Produtos -> serviços
+//        db.execSQL( "Create table produtos (_id integer primary key autoincrement, "+
+//                    "id_prod_web int, id_os text, nome text, desc text, quant int);");
+//
+//        // Cadastra usuário padrão
+//        db.execSQL("insert into usuarios (nome, usuario, senha) VALUES ('ADMIN', 'admin', '123');");
     }
 
     @Override

@@ -7,7 +7,13 @@ import java.util.List;
  */
 public class ServiceCatalog {
     public List<Usuarios> usuarios;
-
     public List<Servicos> servicos;
 
+    @Override
+    public String toString() {
+        return "ServiceCatalog{" +
+                "usuarios=" + usuarios +
+                ", servicos=" + servicos +
+                '}';
+    }
 }

@@ -1,20 +1,34 @@
 package com.webdroidteam.teste_layout_1.models;
 
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Table;
+import com.google.gson.annotations.Expose;
+
 import java.util.List;
 
 /**
  * Created by Leonardo on 17/04/2016.
  */
-public class Servicos {
+@Table(name = "tb_os")
+public class Servicos extends Model {
     public Integer _id;
+    @Expose
     public String id_web;
+    @Expose
     public String nome;
+    @Expose
     public String id_colab;
+    @Expose
     public String serv;
+    @Expose
     public String colab;
+    @Expose
     public String obs;
+    @Expose
     public String orc;
+    @Expose
     public String fot;
+    @Expose
     public String data;
 
     public List<Produtos> produtos;
@@ -34,7 +48,7 @@ public class Servicos {
     }
 
     public  Servicos(){
-
+        super();
     }
 
     public String getId_colab() {
@@ -124,4 +138,23 @@ public class Servicos {
     public void setProdutos(List<Produtos> produtos) {
         this.produtos = produtos;
     }
+
+    @Override
+    public String toString() {
+        return "Servicos{" +
+                "_id=" + _id +
+                ", id_web='" + id_web + '\'' +
+                ", nome='" + nome + '\'' +
+                ", id_colab='" + id_colab + '\'' +
+                ", serv='" + serv + '\'' +
+                ", colab='" + colab + '\'' +
+                ", obs='" + obs + '\'' +
+                ", orc='" + orc + '\'' +
+                ", fot='" + fot + '\'' +
+                ", data='" + data + '\'' +
+                ", produtos=" + produtos +
+                '}';
+    }
 }
+
+
