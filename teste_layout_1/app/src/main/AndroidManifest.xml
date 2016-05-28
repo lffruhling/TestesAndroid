@@ -23,8 +23,14 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:name=".MGApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data android:name="AA_DB_NAME" android:value="base.db" />
+        <meta-data android:name="AA_DB_VERSION" android:value="1" />
+        <meta-data
+            android:name="AA_MODELS"
+            android:value="com.webdroidteam.teste_layout_1.models.Usuarios, com.webdroidteam.teste_layout_1.models.Produtos, com.webdroidteam.teste_layout_1.models.Servicos" />
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait">

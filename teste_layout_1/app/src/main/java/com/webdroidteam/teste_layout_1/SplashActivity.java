@@ -51,7 +51,7 @@ public class SplashActivity extends Activity {
     private BroadcastReceiver mRegistrationBroadcastReceiver;
 
     WifiManager adminWifi;
-    private static final String TAG = "LOG-LEO";
+    private static final String TAG = "WS";
     private Usuarios usuario;
     private UsuarioDAO usuarioDAO;
 
@@ -124,7 +124,33 @@ public class SplashActivity extends Activity {
                     .build();
 
             ConectService service = retrofit.create(ConectService.class);
-            Call<ServiceCatalog> requestCatalog = service.listCatalog();
+            /*metodo novo*/
+
+            final Callback<ServiceCatalog> requestCatalog = new Callback<ServiceCatalog>(){
+                public void success(ServiceCatalog serviceCatalog, Response response)
+                {
+                    Log.e(TAG,"Sucesso: success ");
+//                    for(Usuarios c : serviceCatalog.usuarios){
+//
+//                    }
+                }
+
+                @Override
+                public void onResponse(Call<ServiceCatalog> call, Response<ServiceCatalog> response) {
+                    Log.e(TAG,"Sucesso: onResponse ");
+                }
+
+                @Override
+                public void onFailure(Call<ServiceCatalog> call, Throwable t) {
+                    Log.e(TAG,"Erro: "+t.getMessage());
+                }
+            };
+
+
+
+
+            /*Metodo antigo*/
+            /*Call<ServiceCatalog> requestCatalog = service.listCatalog();
 
             requestCatalog.enqueue(new Callback<ServiceCatalog>() {
                 @Override
@@ -144,7 +170,7 @@ public class SplashActivity extends Activity {
                             usuario.setUsuario(c.usuario);
                             usuario.setSenha(c.senha);
                             usuarioDAO.salvarUsuario(usuario); // Carrega logins
-                            Log.i("OKKKKKK",String.format("%s: %s",c._id,c.nome));
+                            //Log.i("OKKKKKK",String.format("%s: %s",c._id,c.nome));
                             i++;
                             Log.i("Array: ", i.toString());
                             Log.i(TAG,"---------------------");
@@ -160,7 +186,7 @@ public class SplashActivity extends Activity {
                 public void onFailure(Call<ServiceCatalog> call, Throwable t) {
                     Log.e(TAG,"Erro: "+t.getMessage());
                 }
-            });
+            });*/
 
             /*new Timer().schedule(new TimerTask() {
                 @Override

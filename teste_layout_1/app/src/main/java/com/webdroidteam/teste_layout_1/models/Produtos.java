@@ -1,20 +1,40 @@
 package com.webdroidteam.teste_layout_1.models;
 
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+import com.google.gson.annotations.Expose;
+
 import java.util.List;
 
 /**
  * Created by Leonardo on 17/04/2016.
  */
-public class Produtos {
-    public Integer _id;
+@Table(name = "Produtos")
+public class Produtos extends Model{
+
+    @Expose
+    @Column(name = "id_pro")
     public String id_pro;
+
+    @Expose
+    @Column(name = "id_os")
     public String id_os;
+
+    @Expose
+    @Column(name = "nome")
     public String nome;
+
+    @Expose
+    @Column(name = "desc")
     public String desc;
+
+    @Expose
+    @Column(name = "quant")
     public String quant;
 
-    public Produtos(Integer id, String id_pro, String id_os, String nome, String desc, String quant){
-        this._id = id;
+    public Produtos(String id_pro, String id_os, String nome, String desc, String quant){
+        super();
         this.id_pro = id_pro;
         this.id_os = id_os;
         this.nome = nome;
@@ -24,7 +44,7 @@ public class Produtos {
     }
 
     public  Produtos(){
-
+        super();
     }
 
     public String getId_os() {
@@ -33,14 +53,6 @@ public class Produtos {
 
     public void setId_os(String id_os) {
         this.id_os = id_os;
-    }
-
-    public Integer get_id() {
-        return _id;
-    }
-
-    public void set_id(Integer _id) {
-        this._id = _id;
     }
 
     public String getId_pro() {

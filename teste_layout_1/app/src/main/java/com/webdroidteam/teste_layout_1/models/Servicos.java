@@ -1,26 +1,59 @@
 package com.webdroidteam.teste_layout_1.models;
 
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+import com.google.gson.annotations.Expose;
+
 import java.util.List;
 
 /**
  * Created by Leonardo on 17/04/2016.
  */
-public class Servicos {
-    public Integer _id;
+@Table(name = "Servicos")
+public class Servicos extends Model{
+
+    @Expose
+    @Column(name = "id_web")
     public String id_web;
+
+    @Expose
+    @Column(name = "nome")
     public String nome;
+
+    @Expose
+    @Column(name = "id_colab")
     public String id_colab;
+
+    @Expose
+    @Column(name = "serv")
     public String serv;
+
+    @Expose
+    @Column(name = "colab")
     public String colab;
+
+    @Expose
+    @Column(name = "obs")
     public String obs;
+
+    @Expose
+    @Column(name = "orc")
     public String orc;
+
+    @Expose
+    @Column(name = "fot")
     public String fot;
+
+    @Expose
+    @Column(name = "data")
     public String data;
 
+    @Expose
     public List<Produtos> produtos;
 
-    public Servicos(Integer id, String id_web, String nome, String id_colab, String serv, String colab, String obs, String orc, String fot, String data, List<Produtos> produtos){
-        this._id = id;
+    public Servicos(String id_web, String nome, String id_colab, String serv, String colab, String obs, String orc, String fot, String data, List<Produtos> produtos){
+        super();
         this.id_web = id_web;
         this.nome = nome;
         this.id_colab = id_colab;
@@ -34,7 +67,7 @@ public class Servicos {
     }
 
     public  Servicos(){
-
+        super();
     }
 
     public String getId_colab() {
@@ -43,14 +76,6 @@ public class Servicos {
 
     public void setId_colab(String id_colab) {
         this.id_colab = id_colab;
-    }
-
-    public Integer get_id() {
-        return _id;
-    }
-
-    public void set_id(Integer _id) {
-        this._id = _id;
     }
 
     public String getId_web() {

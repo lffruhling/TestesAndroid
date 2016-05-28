@@ -44,9 +44,9 @@ public class ServicosDAO {
         valores.put(DataBase.Servicos.FOTO, servicos.getFot());
         valores.put(DataBase.Servicos.DATA, servicos.getData());
 
-        if (servicos.get_id() != null){
-            return getDatabase().update(DataBase.Servicos.TABELA, valores, "_id = ?", new String[]{(servicos.get_id().toString())});
-        }
+//        if (servicos.get_id() != null){
+//            return getDatabase().update(DataBase.Servicos.TABELA, valores, "_id = ?", new String[]{(servicos.get_id().toString())});
+//        }
 
         return getDatabase().insert(DataBase.Servicos.TABELA, null, valores);
     }

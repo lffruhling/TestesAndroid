@@ -34,9 +34,9 @@ public class ProdutosDAO {
         valores.put(DataBase.Produtos.DESC, produtos.getDesc());
         valores.put(DataBase.Produtos.QUANT, produtos.getQuant());
 
-        if (produtos.get_id() != null){
-            return getDatabase().update(DataBase.Produtos.TABELA, valores, "_id = ?", new String[]{(produtos.get_id().toString())});
-        }
+//        if (produtos.get_id() != null){
+//            return getDatabase().update(DataBase.Produtos.TABELA, valores, "_id = ?", new String[]{(produtos.get_id().toString())});
+//        }
 
         return getDatabase().insert(DataBase.Produtos.TABELA, null, valores);
     }

@@ -1,19 +1,38 @@
 package com.webdroidteam.teste_layout_1.models;
 
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+import com.google.gson.annotations.Expose;
+
 /**
  * Created by Leonardo on 06/04/2016.
  */
-public class Usuarios {
-    public Integer _id;
+@Table(name = "Usuarios")
+public class Usuarios extends Model{
+
+    @Expose
+    @Column(name = "nome")
     public String nome;
+
+    @Expose
+    @Column(name = "id_web")
     public String id_web;
+
+    @Expose
+    @Column(name = "email")
     public String email;
+
+    @Expose
+    @Column(name = "usuario")
     public String usuario;
+
+    @Expose
+    @Column(name = "senha")
     public String senha;
 
-
-    public Usuarios(int id, String nome, String id_web, String email, String usuario, String senha){
-        this._id = id;
+    public Usuarios(String nome, String id_web, String email, String usuario, String senha){
+        super();
         this.nome = nome;
         this.id_web = id_web;
         this.email = email;
@@ -23,17 +42,9 @@ public class Usuarios {
     }
 
     public  Usuarios(){
-
+        super();
     }
 
-
-    public Integer get_id() {
-        return _id;
-    }
-
-    public void set_id(int _id) {
-        this._id = _id;
-    }
 
     public String getNome() {
         return nome;

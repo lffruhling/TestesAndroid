@@ -37,9 +37,9 @@ public class UsuarioDAO {
         valores.put(DataBase.Usuarios.USUARIO, usuario.getUsuario());
         valores.put(DataBase.Usuarios.SENHA, usuario.getSenha());
 
-        if (usuario.get_id() != null){
-            return getDatabase().update(DataBase.Usuarios.TABELA, valores, "_id = ?", new String[]{usuario.get_id().toString()});
-        }
+//        if (usuario.get_id() != null){
+//            return getDatabase().update(DataBase.Usuarios.TABELA, valores, "_id = ?", new String[]{usuario.get_id().toString()});
+//        }
 
         return getDatabase().insert(DataBase.Usuarios.TABELA, null, valores);
     }
