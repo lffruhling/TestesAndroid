@@ -1,5 +1,7 @@
 package com.webdroidteam.teste_layout_1.conectService;
 
+import android.util.Log;
+
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
@@ -9,6 +11,7 @@ import com.webdroidteam.teste_layout_1.preferences.Preferences;
 import java.util.Date;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -58,6 +61,7 @@ public class ApiFactory {
 //        return retrofit.create(endpoint);
 //    }
     private static retrofit2.Retrofit buildRetroFit(OkHttpClient client, Gson gson) {
+
         return  new Retrofit.Builder()
                 .baseUrl(ConectService.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -68,7 +72,7 @@ public class ApiFactory {
 //                .baseUrl("http://dev.easy-serv.com/api/v1/")
 //                .client(client)
 //                .addCallAdapterFactory(RxErrorHandlingCallAdapterFactory.create())
-//                .addConverterFactory(GsonConverterFactory.create(gson))
+//                .addConvrterFactory(GsonConverterFactory.create(gson))
 //                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
 //                .build();
     }

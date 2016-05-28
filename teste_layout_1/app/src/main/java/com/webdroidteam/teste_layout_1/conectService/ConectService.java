@@ -25,5 +25,5 @@ public interface ConectService {
     Call<ServiceCatalog> listServicosId(@Query("id_us") String id);
 
     @POST("device/registration")
-    Call<RCadId> postIdDevice(@Body SendDeviceId sendDeviceId);
+    Call<SendDeviceId> postIdDevice(@Body SendDeviceId sendDeviceId);
 }

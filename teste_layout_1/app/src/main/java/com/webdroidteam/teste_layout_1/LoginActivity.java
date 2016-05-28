@@ -18,7 +18,10 @@ import com.webdroidteam.teste_layout_1.models.ServiceCatalog;
 import com.webdroidteam.teste_layout_1.preferences.UsuarioPreferences;
 import com.webdroidteam.teste_layout_1.util.Mensagem;
 import android.support.v7.widget.AppCompatCheckBox;
+import android.widget.Toast;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -109,25 +112,50 @@ public class LoginActivity extends Activity {
             UsuarioPreferences usuarioPreferences = new UsuarioPreferences(this);
             usuarioPreferences.setIdUser(id_tec);
 
+            /*Ver log retrofit*/
+            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+            // set your desired log level
+            logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+            OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+            // add your other interceptors …
+
+            // add logging as last interceptor
+            httpClient.addInterceptor(logging);  // <-- this is the important line!
+
+
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(ConectService.BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(httpClient.build())
+                    .build();
+
+            //SendDeviceId sendDeviceId = new SendDeviceId("3", "teste");
             SendDeviceId sendDeviceId = new SendDeviceId(usuarioPreferences.getIdUser(), usuarioPreferences.getToken());
+            ConectService service = retrofit.create(ConectService.class);
+            Call<SendDeviceId> requestUsuario = service.postIdDevice(sendDeviceId); //aqui passa a classe user como parametro
 
-            Call<RCadId> ResponseCadId = ApiFactory.conectService().postIdDevice(sendDeviceId);
+//
+//            Log.d("teste", "id_user: "+usuarioPreferences.getIdUser()+" token: "+usuarioPreferences.getToken());
+//            Call<SendDeviceId> ResponseCadId = ApiFactory.conectService().postIdDevice(sendDeviceId);
 
-        ResponseCadId.enqueue(new Callback<RCadId>() {
+        requestUsuario.enqueue(new Callback<SendDeviceId>() {
             @Override
-            public void onResponse(Call<RCadId> call, Response<RCadId> response) {
+            public void onResponse(Call<SendDeviceId> call, Response<SendDeviceId> response) {
                 if(!response.isSuccessful()){
-                    Log.i("POST","ErroRRR de insucesso: "+response.code());
+                    Log.i("POST","Erro de Resposta: "+response.code());
+                    String msgErro = "Falha na Resposta do Servidor!";
+                    Toast.makeText(getApplicationContext(), msgErro,Toast.LENGTH_LONG).show();
                 }else{
                     Log.i("POST","CADASTRADO COM SUCESSO: "+response.code());
-                    RCadId catalog = response.body();
-                    Log.i("POST","Resposta "+catalog.getStatus());
+                    SendDeviceId catalog = response.body();
+//                    Log.i("POST","Resposta "+catalog.getStatus());
                 }
             }
 
             @Override
-            public void onFailure(Call<RCadId> call, Throwable t) {
-
+            public void onFailure(Call<SendDeviceId> call, Throwable t) {
+                Log.e("POST", "Falha na Requisição: " + t.getMessage());
             }
         });
 
