@@ -270,7 +270,12 @@ public class MenuActivity extends FragmentActivity implements TabHost.OnTabChang
         return false;
     }
 
-    public void teste (View view){
-        Toast.makeText(this, "teste", Toast.LENGTH_SHORT).show();
+    public void logout (View view){
+
+//        Toast.makeText(this, "teste", Toast.LENGTH_SHORT).show();
+        //Apagar preferences
+        finish();
+        System.exit(0);
+
     }
 }

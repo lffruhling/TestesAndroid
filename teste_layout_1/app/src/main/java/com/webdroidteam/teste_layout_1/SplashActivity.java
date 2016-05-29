@@ -121,74 +121,12 @@ public class SplashActivity extends Activity {
         adminWifi = (WifiManager) SplashActivity.this.getSystemService(Context.WIFI_SERVICE);
 
         if (testa3G(this) || isConected(this)){
-            //Toast.makeText(SplashActivity.this,"Entrou", Toast.LENGTH_LONG).show();
-//            Retrofit retrofit = new Retrofit.Builder()
-//                    .baseUrl(ConectService.BASE_URL)
-//                    .addConverterFactory(GsonConverterFactory.create())
-//                    .build();
-
-
-
             ApiFactory.conectService().listCatalog()
             .subscribeOn(Schedulers.io())
                     .map(r -> r.usuarios)
                     .doOnError(error -> onError(error))
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(this::onResponse, error -> onError(error));
-
-
-
-
-            /*metodo novo*/
-
-            /*Metodo antigo*/
-            /*Call<ServiceCatalog> requestCatalog = service.listCatalog();
-
-            requestCatalog.enqueue(new Callback<ServiceCatalog>() {
-                @Override
-                public void onResponse(Call<ServiceCatalog> call, Response<ServiceCatalog> response) {
-                    usuarioDAO.limparBanco(); // Limpa o banco e remove o admin
-                    if(!response.isSuccessful()){
-                        Log.i(TAG,"ErroRRR de insucesso: "+response.code());
-                    }else{
-                        //Requisição com sucesso
-                        ServiceCatalog catalog = response.body();
-                        Integer i = 0;
-                        for(Usuarios c : catalog.usuarios){
-                            usuario = new Usuarios();
-                            usuario.setId_web(c.id_web);
-                            usuario.setNome(c.nome);
-                            usuario.setEmail(c.email);
-                            usuario.setUsuario(c.usuario);
-                            usuario.setSenha(c.senha);
-                            usuarioDAO.salvarUsuario(usuario); // Carrega logins
-                            //Log.i("OKKKKKK",String.format("%s: %s",c._id,c.nome));
-                            i++;
-                            Log.i("Array: ", i.toString());
-                            Log.i(TAG,"---------------------");
-                            finish();
-
-                            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-                            startActivity(intent);
-                        }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<ServiceCatalog> call, Throwable t) {
-                    Log.e(TAG,"Erro: "+t.getMessage());
-                }
-            });*/
-
-            /*new Timer().schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    finish();
-
-                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                }
-            }, 3000);*/
         }else{
             alertDialog(this);
 
@@ -196,7 +134,6 @@ public class SplashActivity extends Activity {
                 @Override
                 public void run() {
                     finish();
-
                     Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }

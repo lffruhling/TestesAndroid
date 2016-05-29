@@ -33,10 +33,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class LoginActivity extends Activity {
     private EditText cpoUsuario, cpoSenha;
-    //private AppCompatCheckBox ckbConectado;
-    //final CheckBox ckbConectado  = (CheckBox) findViewById(R.id.ckb_ManterConectado);
-
-    private static final String MANTER_CONECTADO = "manter_conectado";
     private static final String PREFERENCE_NAME = "LoginActivtyPreferences";
 
     @Override
@@ -46,7 +42,6 @@ public class LoginActivity extends Activity {
 
         cpoUsuario    = (EditText) findViewById(R.id.cpoUsuario);
         cpoSenha      = (EditText) findViewById(R.id.cpoSenha);
-        //final CheckBox ckbConectado  = (CheckBox) findViewById(R.id.ckb_ManterConectado);
 
         /*Para usar isto, primeiro ver como retornoar o id do usuário logado*/
         //SharedPreferences preferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
@@ -117,7 +112,6 @@ public class LoginActivity extends Activity {
         // add logging as last interceptor
         httpClient.addInterceptor(logging);  // <-- this is the important line!
 
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ConectService.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -129,10 +123,6 @@ public class LoginActivity extends Activity {
         ConectService service = retrofit.create(ConectService.class);
         Call<SendDeviceId> requestUsuario = service.postIdDevice(sendDeviceId); //aqui passa a classe user como parametro
 
-//
-//            Log.d("teste", "id_user: "+usuarioPreferences.getIdUser()+" token: "+usuarioPreferences.getToken());
-//            Call<SendDeviceId> ResponseCadId = ApiFactory.conectService().postIdDevice(sendDeviceId);
-
         requestUsuario.enqueue(new Callback<SendDeviceId>() {
             @Override
             public void onResponse(Call<SendDeviceId> call, Response<SendDeviceId> response) {
@@ -143,7 +133,6 @@ public class LoginActivity extends Activity {
                 }else{
                     Log.i("POST","CADASTRADO COM SUCESSO: "+response.code());
                     SendDeviceId catalog = response.body();
-    //                    Log.i("POST","Resposta "+catalog.getStatus());
                 }
             }
 
@@ -152,16 +141,9 @@ public class LoginActivity extends Activity {
                 Log.e("POST", "Falha na Requisição: " + t.getMessage());
             }
         });
-
+        finish();
         startActivity(intent);
         setContentView(R.layout.activity_menu);
-        finish();
     }
 
-    /*public void verificaLogin (View view){
-        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-        startActivity(intent);
-        setContentView(R.layout.activity_menu);
-
-    }*/
 }
