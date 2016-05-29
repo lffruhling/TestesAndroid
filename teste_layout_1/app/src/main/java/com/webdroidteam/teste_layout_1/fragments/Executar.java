@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +16,19 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.webdroidteam.teste_layout_1.R;
+import com.webdroidteam.teste_layout_1.adapter.AdapterItemExecutar;
 import com.webdroidteam.teste_layout_1.bodyExecutar.ExecutarOs;
-import com.webdroidteam.teste_layout_1.bodyOrcar.CriarOrcamento;
+import com.webdroidteam.teste_layout_1.models.Servicos;
+import com.webdroidteam.teste_layout_1.preferences.UsuarioPreferences;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Executar extends Fragment {
+public class Executar extends Fragment implements ClickListener{
+    private RecyclerView rvExecutar;
+    private AdapterItemExecutar adapter;
+    private RecyclerView.LayoutManager lmRecycler;
+    private Servicos servicos;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,35 +36,25 @@ public class Executar extends Fragment {
         if (container == null) {
             return null;
         }
+        View rootView = inflater.inflate(R.layout.activity_executar,null);
 
-        View rootView = (LinearLayout) inflater.inflate(R.layout.activity_executar, container, false);
+        rvExecutar= (RecyclerView) rootView.findViewById(R.id.lvListaExec);
+        UsuarioPreferences usuarioPreferences = new UsuarioPreferences(getActivity());
+        adapter = new AdapterItemExecutar(getActivity(), servicos.listaExecutar(usuarioPreferences.getIdUser()), this);
 
-//        ServicosDAO servicosDAO = new ServicosDAO(getActivity());
-//
-//        List<String> atividades = new ArrayList<>(servicosDAO.listarExec());
+        lmRecycler = new LinearLayoutManager(getActivity());
+        rvExecutar.setLayoutManager(lmRecycler);
 
-        //String[] atividades = new String[]{"Executar 1", "Executar 2"};
-
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,atividades);
-
-        ListView lv_lista = (ListView) rootView.findViewById(R.id.lvListaExec);
-
-//        lv_lista.setAdapter(adapter);
-
-        lv_lista.setOnItemClickListener(chamaAtividades());
-
-        // Inflamos o layout executar.xml
+        rvExecutar.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
         return rootView;
     }
 
-    public AdapterView.OnItemClickListener chamaAtividades(){
-        return (new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> av, View v, int position, long id) {
-                Intent intent = null;
-                intent = new Intent(getContext(), ExecutarOs.class);
-                startActivity(intent);
-            }
-        });
+    @Override
+    public void onItemClick(Servicos servicos) {
+        Intent intent = null;
+        intent = new Intent(getContext(), ExecutarOs.class);
+        
+        startActivity(intent);
     }
 }

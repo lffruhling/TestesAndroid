@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -19,14 +22,23 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.webdroidteam.teste_layout_1.R;
+import com.webdroidteam.teste_layout_1.adapter.AdapterItemOrcar;
 import com.webdroidteam.teste_layout_1.bodyOrcar.CriarOrcamento;
+import com.webdroidteam.teste_layout_1.models.Servicos;
+import com.webdroidteam.teste_layout_1.models.Usuarios;
+import com.webdroidteam.teste_layout_1.preferences.UsuarioPreferences;
 import com.webdroidteam.teste_layout_1.util.Mensagem;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 
-public class Orcar extends Fragment {
+public class Orcar extends Fragment implements ClickListener {
+
+    private RecyclerView rvOrcar;
+    private AdapterItemOrcar adapter;
+    private RecyclerView.LayoutManager lmRecycler;
+    private Servicos servicos;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -36,55 +48,25 @@ public class Orcar extends Fragment {
             return null;
         }
 
-        View rootView = (LinearLayout) inflater.inflate(R.layout.activity_orcar, container, false);
+        View rootView = inflater.inflate(R.layout.activity_orcar,null);
 
-//        ServicosDAO servicosDAO = new ServicosDAO(getActivity());
-//
-//        List<String> atividades = new ArrayList<>(servicosDAO.listarOrcar());
+        rvOrcar = (RecyclerView) rootView.findViewById(R.id.lvListaOrc);
+        UsuarioPreferences usuarioPreferences = new UsuarioPreferences(getActivity());
+        adapter = new AdapterItemOrcar(getActivity(), servicos.listaOrcar(usuarioPreferences.getIdUser()), this);
 
-        //String[] atividades = new String[]{"orc 1","orc 2"};
+        lmRecycler = new LinearLayoutManager(getActivity());
+        rvOrcar.setLayoutManager(lmRecycler);
 
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,atividades);
-
-        ListView lv_lista = (ListView) rootView.findViewById(R.id.lvListaOrc);
-
-//        lv_lista.setAdapter(adapter);
-
-        lv_lista.setOnItemClickListener(chamaAtividades());
-
-        // Inflamos o layout Orcar.xml
+        rvOrcar.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
         return rootView;
+
     }
 
-    public AdapterView.OnItemClickListener chamaAtividades(){
-        return (new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> av, View v, int position, long id) {
-                Intent intent = null;
-                intent = new Intent(getContext(), CriarOrcamento.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    /*Código do Menu*/
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_menu_filtro:
-                //text = page.getText().toString();
-                //speakOut(text);
-                // Do Activity menu item stuff here
-                return true;
-            case R.id.action_menu_sinc:
-                //speakOf();
-                // Not implemented here
-                return true;
-            default:
-                break;
-        }
-
-        return false;
+    public void onItemClick(Servicos servicos) {
+        Intent intent = null;
+        intent = new Intent(getContext(), CriarOrcamento.class);
+        startActivity(intent);
     }
-
 }

@@ -1,99 +1,85 @@
 package com.webdroidteam.teste_layout_1.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.webdroidteam.teste_layout_1.R;
 import com.webdroidteam.teste_layout_1.bodyOrcar.ItemOrcar;
+import com.webdroidteam.teste_layout_1.fragments.ClickListener;
+import com.webdroidteam.teste_layout_1.fragments.Orcar;
+import com.webdroidteam.teste_layout_1.models.Servicos;
 
 import java.util.List;
 
 /**
  * Created by Leonardo on 23/04/2016.
  */
-public class AdapterItemOrcar extends BaseAdapter {
+public class AdapterItemOrcar extends RecyclerView.Adapter<AdapterItemOrcar.SimpleViewHolder> {
 
-    private LayoutInflater mInflater;
-    private List<ItemOrcar> itens;
+    private Context context;
+    private List<Servicos> itens;
+    private ClickListener clickListner;
 
-    public  AdapterItemOrcar (Context context, List<ItemOrcar> itens){
-        //Itens do ListView
+    public  AdapterItemOrcar (Context context, List<Servicos> itens, ClickListener clickListner){
         this.itens = itens;
-        //Objeto responsável por pegar o Layout do item
-        mInflater = LayoutInflater.from(context);
+        this.context = context;
+        this.clickListner = clickListner;
+        Log.d("SQL", "total: "+itens.size());
+    }
+
+
+    //Infla as informações da view
+    @Override
+    public SimpleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_item_list_orc, parent, false);
+        return new SimpleViewHolder(view);
+
+    }
+
+    //Seta as informações para o item
+    @Override
+    public void onBindViewHolder(SimpleViewHolder holder, int position) {
+        final Servicos servicos = itens.get(position);
+        Log.d("SQL", "serviço: "+servicos.id_web);
+        holder.id_os.setText(servicos.id_web);
+        holder.cliente.setText(servicos.nome);
+        holder.servico.setText(servicos.serv);
+        holder.data_serv.setText(servicos.data);
+        holder.rlItemRow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickListner.onItemClick(servicos);
+            }
+        });
     }
 
     @Override
-    public int getCount() {
-        //retorna a quantidade de itens da lista
+    public int getItemCount() {
         return itens.size();
     }
 
-    @Override
-    public Object getItem(int position) {
-        /*
-        retornar o item da lista de acordo com sua posição
-        Leia mais em: Android: Criando um ListView Customizado http://www.devmedia.com.br/android-criando-um-listview-customizado/26260#ixzz46keG9VTA
-        */
-        return itens.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        /*
-        irá retornar o id do item de acordo com sua posição
-
-        Leia mais em: Android: Criando um ListView Customizado http://www.devmedia.com.br/android-criando-um-listview-customizado/26260#ixzz46kePEnTe
-        * */
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View view, ViewGroup parent) {
-        ItemSuporte itemHolder;
-        /* Se a view estiver nula (nunca criada), inflamos o layout nela*/
-        if(view == null){
-            /*infla o layout para podermos pegar as views*/
-            view = mInflater.inflate(R.layout.item_orcar, null);
-
-            /*
-            * Criar um item de suporte para não precisarmos sempre
-            * inflar as mesmas informações
-            * */
-
-            itemHolder = new ItemSuporte();
-            itemHolder.txtTitle = ((TextView) view.findViewById(R.id.txt_item_IdOs));
-
-            /* Define os itens na view */
-            view.setTag(itemHolder);
-        }else{
-            /* se a view já existe pega os itens */
-            itemHolder = (ItemSuporte) view.getTag();
+    public static class SimpleViewHolder extends RecyclerView.ViewHolder {
+        TextView id_os;
+        TextView cliente;
+        TextView servico;
+        TextView data_serv;
+        RelativeLayout rlItemRow;
+        public SimpleViewHolder(View itemView) {
+            super(itemView);
+            id_os = (TextView) itemView.findViewById(R.id.txt_item_orc_IdOs);
+            cliente = (TextView) itemView.findViewById(R.id.txt_item_orc_cliente);
+            servico = (TextView) itemView.findViewById(R.id.txt_item_orc_servico);
+            data_serv = (TextView) itemView.findViewById(R.id.txt_item_orc_data);
+            rlItemRow = (RelativeLayout) itemView.findViewById(R.id.rlItemRow);
         }
-
-        /*
-        * Pega os dados da lista
-        * e define os valores nos itens
-        *
-        * esse item orçar pode estar errado e dar erro aqui
-        * */
-        ItemOrcar item = itens.get(position);
-        itemHolder.txtTitle.setText(item.getTexto());
-
-        /*retorna a view com as informações*/
-
-        return view;
     }
 
-    /*
-    * Classe de suporte para os itens do layout
-    * */
-    private class ItemSuporte{
-        TextView txtTitle;
-    }
 }

@@ -177,20 +177,20 @@ public class Servicos extends Model{
                 from(Servicos.class).
                 where("id_colab = ? and concluida = 1", id_tec).
                 orderBy("Id ASC").
-                executeSingle();
+                execute();
     }
 
     public static List<Servicos> listaOrcar(String id_tec){
         return new Select().
                 from(Servicos.class).
-                where("id_colab = ? and orc = 1 and concluida = 0", id_tec).
-                executeSingle();
+                where("id_colab = ? and orc = 1 and (concluida isnull or concluida = 0)", id_tec).
+                execute();
     }
 
     public static List<Servicos> listaExecutar(String id_tec){
         return new Select().
                 from(Servicos.class).
-                where("id_colab = ? and orc = 0 and concluida = 0", id_tec).
-                executeSingle();
+                where("id_colab = ? and orc = 0 and (concluida isnull or concluida = 0)", id_tec).
+                execute();
     }
 }
