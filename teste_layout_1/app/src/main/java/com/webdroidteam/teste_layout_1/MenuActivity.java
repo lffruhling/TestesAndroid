@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,9 +25,8 @@ import android.widget.TabHost.TabContentFactory;
 import android.widget.Toast;
 
 import com.webdroidteam.teste_layout_1.adapter.ViewPagerAdapter;
+import com.webdroidteam.teste_layout_1.conectService.ApiFactory;
 import com.webdroidteam.teste_layout_1.conectService.ConectService;
-import com.webdroidteam.teste_layout_1.dao.ProdutosDAO;
-import com.webdroidteam.teste_layout_1.dao.ServicosDAO;
 import com.webdroidteam.teste_layout_1.fragments.Concluidas;
 import com.webdroidteam.teste_layout_1.fragments.Executar;
 import com.webdroidteam.teste_layout_1.fragments.Orcar;
@@ -42,6 +40,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 
 /**
@@ -53,11 +53,7 @@ public class MenuActivity extends FragmentActivity implements TabHost.OnTabChang
     private HashMap<String, TabInfo> mapTabInfo = new HashMap<String, MenuActivity.TabInfo>();
     private PagerAdapter mPagerAdapter;
     private static final String TAG = "MG: ";
-    private Servicos servico;
-    private ServicosDAO servicoDAO;
-    private Produtos produto;
-    private ProdutosDAO produtoDAO;
-
+    private Servicos servicos;
 
     // Informação da Tab
     private class TabInfo {
@@ -91,8 +87,6 @@ public class MenuActivity extends FragmentActivity implements TabHost.OnTabChang
     }
 
     protected void onCreate(Bundle savedInstanceState) {
-        servicoDAO = new ServicosDAO(this);
-        produtoDAO = new ProdutosDAO(this);
         super.onCreate(savedInstanceState);
         // Infla o layout
         setContentView(R.layout.activity_menu);
@@ -113,66 +107,34 @@ public class MenuActivity extends FragmentActivity implements TabHost.OnTabChang
 
             if(params != null){
                 String id_tec = params.getString("ID_TEC");
-                //Toast.makeText(this, id_tec, Toast.LENGTH_LONG).show();
-                // Chama consulta ao Web-Service passando id do usuário;
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl(ConectService.BASE_URL)
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
 
-                final ConectService service = retrofit.create(ConectService.class);
-                Call<ServiceCatalog> call = service.listServicosId(id_tec);
-                call.enqueue(new Callback<ServiceCatalog>() {
-                    @Override
-                    public void onResponse(Call<ServiceCatalog> call, Response<ServiceCatalog> response) {
-                        if(!response.isSuccessful()){
-                            Log.i(TAG,"JSON ERROR: "+response.code());
-                        }else{
-                            //Requisição com sucesso
-                            Log.i(TAG,"JSON OK: "+response.code());
-                            ServiceCatalog catalog = response.body();
-                            Integer i = 0;
-                            for(Servicos s : catalog.servicos){
-                                Log.i(TAG,String.format("%s : %s", s.id_web,s.nome));
-
-                                //Requisição com sucesso
-                                Servicos servico = new Servicos();
-                                servico.setId_web(s.id_web);
-                                servico.setNome(s.nome);
-                                servico.setId_colab(s.id_colab);
-                                servico.setServ(s.serv);
-                                servico.setColab(s.colab);
-                                servico.setObs(s.obs);
-                                servico.setOrc(s.orc);
-                                servico.setFot(s.fot);
-                                servicoDAO.salvarServico(servico); // Insere serviços
-                                //i++;
-                                //finish();
-
-                                for(Produtos p : s.produtos){
-                                    Log.i(TAG,p.nome);
-                                    Produtos produtos = new Produtos();
-                                    produtos.setId_pro(p.id_pro);
-                                    produtos.setId_os(p.id_os);
-                                    produtos.setNome(p.nome);
-                                    produtos.setDesc(p.desc);
-                                    produtos.setQuant(p.quant);
-                                    produtoDAO.salvarProdutos(produtos);
-                                }
-
-                                Log.i(TAG,"--------------");
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<ServiceCatalog> call, Throwable t) {
-                        Log.e(TAG,"FAILURE: "+t.getMessage());
-                    }
-                });
+                ApiFactory.conectService().listServicosId(id_tec)
+                        .subscribeOn(Schedulers.io())
+                        .map(r -> r.servicos)
+                        .doOnError(error -> onError(error))
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(this::onResponse, error -> onError(error));
             }
         }
 
+    }
+
+    private void onResponse(List<Servicos> servicoses) {
+        Log.d(TAG,"response ");
+
+        for (Servicos servicos : servicoses){
+            if(servicos.validaServicos(servicos.getId_web()) == null ){
+                servicos.save();
+
+                for (Produtos produtos : servicos.produtos){
+                    produtos.save();
+                }
+            }
+        }
+    }
+
+    private void onError(Throwable error) {
+        Log.d(TAG,"error "+error.getMessage());
     }
 
     protected void onSaveInstanceState(Bundle outState) {

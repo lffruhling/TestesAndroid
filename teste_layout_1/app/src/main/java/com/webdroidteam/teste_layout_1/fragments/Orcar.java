@@ -20,8 +20,6 @@ import android.widget.Toast;
 
 import com.webdroidteam.teste_layout_1.R;
 import com.webdroidteam.teste_layout_1.bodyOrcar.CriarOrcamento;
-import com.webdroidteam.teste_layout_1.dao.DataBase;
-import com.webdroidteam.teste_layout_1.dao.ServicosDAO;
 import com.webdroidteam.teste_layout_1.util.Mensagem;
 
 import java.util.ArrayList;
@@ -40,17 +38,17 @@ public class Orcar extends Fragment {
 
         View rootView = (LinearLayout) inflater.inflate(R.layout.activity_orcar, container, false);
 
-        ServicosDAO servicosDAO = new ServicosDAO(getActivity());
-
-        List<String> atividades = new ArrayList<>(servicosDAO.listarOrcar());
+//        ServicosDAO servicosDAO = new ServicosDAO(getActivity());
+//
+//        List<String> atividades = new ArrayList<>(servicosDAO.listarOrcar());
 
         //String[] atividades = new String[]{"orc 1","orc 2"};
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,atividades);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,atividades);
 
         ListView lv_lista = (ListView) rootView.findViewById(R.id.lvListaOrc);
 
-        lv_lista.setAdapter(adapter);
+//        lv_lista.setAdapter(adapter);
 
         lv_lista.setOnItemClickListener(chamaAtividades());
 

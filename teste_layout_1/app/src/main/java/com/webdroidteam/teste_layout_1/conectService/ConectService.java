@@ -24,7 +24,7 @@ public interface ConectService {
     Observable<ServiceCatalog> listCatalog();
 
     @GET("servicos/id")
-    Call<ServiceCatalog> listServicosId(@Query("id_us") String id);
+    Observable<ServiceCatalog> listServicosId(@Query("id_us") String id);
 
     @POST("device/registration")
     Call<SendDeviceId> postIdDevice(@Body SendDeviceId sendDeviceId);

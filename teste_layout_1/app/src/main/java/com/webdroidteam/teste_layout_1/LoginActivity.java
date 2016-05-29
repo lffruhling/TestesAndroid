@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -44,12 +45,16 @@ public class LoginActivity extends Activity {
         cpoSenha      = (EditText) findViewById(R.id.cpoSenha);
 
         /*Para usar isto, primeiro ver como retornoar o id do usuário logado*/
-        //SharedPreferences preferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
-        //boolean conectado = preferences.getBoolean(MANTER_CONECTADO, false);
-
-        //if (conectado){
-        //    abreMenu();
-        //}
+        UsuarioPreferences usuarioPreferences = new UsuarioPreferences(this);
+        if (!TextUtils.isEmpty( usuarioPreferences.getIdUser())){
+            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+            String id_tec = usuarioPreferences.getIdUser();
+            Bundle params = new Bundle();
+            params.putString("ID_TEC", id_tec);
+            intent.putExtras(params);
+            finish();
+            startActivity(intent);
+        }
     }
 
     public void logar(View view){
@@ -72,12 +77,6 @@ public class LoginActivity extends Activity {
             // Logar
             Usuarios usuario = Usuarios.getResulLogin(sUsuario,sUsuario,sSenha);
             if(usuario != null){
-                //Descomentar para criar arquivo de permanencia de login
-                //SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
-                //SharedPreferences.Editor editor = sharedPreferences.edit();
-
-                //editor.putBoolean(MANTER_CONECTADO, true);
-                //editor.commit();
                 abreMenu(usuario);
 
             }else{

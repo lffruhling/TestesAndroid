@@ -3,6 +3,8 @@ package com.webdroidteam.teste_layout_1.models;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Delete;
+import com.activeandroid.query.Select;
 import com.google.gson.annotations.Expose;
 
 import java.util.List;
@@ -48,6 +50,17 @@ public class Servicos extends Model{
     @Expose
     @Column(name = "data")
     public String data;
+
+    public String getConcluida() {
+        return concluida;
+    }
+
+    public void setConcluida(String concluida) {
+        this.concluida = concluida;
+    }
+
+    @Column(name = "concluida")
+    public String concluida;
 
     @Expose
     public List<Produtos> produtos;
@@ -148,5 +161,36 @@ public class Servicos extends Model{
 
     public void setProdutos(List<Produtos> produtos) {
         this.produtos = produtos;
+    }
+
+    public static Servicos validaServicos(String id_web){
+        return new Select().from(Servicos.class).where("id_web = ?", id_web).executeSingle();
+    }
+
+    public static Servicos limpaBanco(){
+        new Delete().from(Servicos.class).where("Id >= ?", 1).execute();
+        return null;
+    }
+
+    public static List<Servicos> listaConcluidas(String id_tec){
+        return new Select().
+                from(Servicos.class).
+                where("id_colab = ? and concluida = 1", id_tec).
+                orderBy("Id ASC").
+                executeSingle();
+    }
+
+    public static List<Servicos> listaOrcar(String id_tec){
+        return new Select().
+                from(Servicos.class).
+                where("id_colab = ? and orc = 1 and concluida = 0", id_tec).
+                executeSingle();
+    }
+
+    public static List<Servicos> listaExecutar(String id_tec){
+        return new Select().
+                from(Servicos.class).
+                where("id_colab = ? and orc = 0 and concluida = 0", id_tec).
+                executeSingle();
     }
 }

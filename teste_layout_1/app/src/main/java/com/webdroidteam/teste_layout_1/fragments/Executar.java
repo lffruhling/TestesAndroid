@@ -16,7 +16,6 @@ import android.widget.RelativeLayout;
 import com.webdroidteam.teste_layout_1.R;
 import com.webdroidteam.teste_layout_1.bodyExecutar.ExecutarOs;
 import com.webdroidteam.teste_layout_1.bodyOrcar.CriarOrcamento;
-import com.webdroidteam.teste_layout_1.dao.ServicosDAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,17 +31,17 @@ public class Executar extends Fragment {
 
         View rootView = (LinearLayout) inflater.inflate(R.layout.activity_executar, container, false);
 
-        ServicosDAO servicosDAO = new ServicosDAO(getActivity());
-
-        List<String> atividades = new ArrayList<>(servicosDAO.listarExec());
+//        ServicosDAO servicosDAO = new ServicosDAO(getActivity());
+//
+//        List<String> atividades = new ArrayList<>(servicosDAO.listarExec());
 
         //String[] atividades = new String[]{"Executar 1", "Executar 2"};
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,atividades);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,atividades);
 
         ListView lv_lista = (ListView) rootView.findViewById(R.id.lvListaExec);
 
-        lv_lista.setAdapter(adapter);
+//        lv_lista.setAdapter(adapter);
 
         lv_lista.setOnItemClickListener(chamaAtividades());
 
