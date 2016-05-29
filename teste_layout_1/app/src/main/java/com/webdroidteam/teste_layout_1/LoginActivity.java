@@ -13,8 +13,8 @@ import com.webdroidteam.teste_layout_1.SendService.RCadId;
 import com.webdroidteam.teste_layout_1.SendService.SendDeviceId;
 import com.webdroidteam.teste_layout_1.conectService.ApiFactory;
 import com.webdroidteam.teste_layout_1.conectService.ConectService;
-import com.webdroidteam.teste_layout_1.dao.UsuarioDAO;
 import com.webdroidteam.teste_layout_1.models.ServiceCatalog;
+import com.webdroidteam.teste_layout_1.models.Usuarios;
 import com.webdroidteam.teste_layout_1.preferences.UsuarioPreferences;
 import com.webdroidteam.teste_layout_1.util.Mensagem;
 import android.support.v7.widget.AppCompatCheckBox;
@@ -33,7 +33,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class LoginActivity extends Activity {
     private EditText cpoUsuario, cpoSenha;
-    private UsuarioDAO helper;
     //private AppCompatCheckBox ckbConectado;
     //final CheckBox ckbConectado  = (CheckBox) findViewById(R.id.ckb_ManterConectado);
 
@@ -49,8 +48,6 @@ public class LoginActivity extends Activity {
         cpoSenha      = (EditText) findViewById(R.id.cpoSenha);
         //final CheckBox ckbConectado  = (CheckBox) findViewById(R.id.ckb_ManterConectado);
 
-        helper = new UsuarioDAO(this);
-
         /*Para usar isto, primeiro ver como retornoar o id do usuário logado*/
         //SharedPreferences preferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         //boolean conectado = preferences.getBoolean(MANTER_CONECTADO, false);
@@ -61,31 +58,32 @@ public class LoginActivity extends Activity {
     }
 
     public void logar(View view){
-        String usuario = cpoUsuario.getText().toString();
-        String senha = cpoSenha.getText().toString();
+        String sUsuario = cpoUsuario.getText().toString();
+        String sSenha = cpoSenha.getText().toString();
 
         boolean validacao = true;
 
-        if (usuario == null || usuario.equals("")){
+        if (sUsuario == null || sUsuario.equals("")){
             validacao = false;
             cpoUsuario.setError(getString(R.string.usuarioVazio));
         }
 
-        if (senha == null || senha.equals("")){
+        if (sSenha == null || sSenha.equals("")){
             validacao = false;
             cpoSenha.setError(getString(R.string.senhaVazio));
         }
 
         if (validacao){
             // Logar
-            if(helper.logar(usuario,usuario,senha)){
+            Usuarios usuario = Usuarios.getResulLogin(sUsuario,sUsuario,sSenha);
+            if(usuario != null){
                 //Descomentar para criar arquivo de permanencia de login
                 //SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
                 //SharedPreferences.Editor editor = sharedPreferences.edit();
 
                 //editor.putBoolean(MANTER_CONECTADO, true);
                 //editor.commit();
-                abreMenu();
+                abreMenu(usuario);
 
             }else{
                 //Mensagem Erro
@@ -95,45 +93,41 @@ public class LoginActivity extends Activity {
 
     }
 
-    private void abreMenu(){
-        String usuario = cpoUsuario.getText().toString();
-        String senha = cpoSenha.getText().toString();
+    private void abreMenu(Usuarios usuario){
+
+        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+
+        String id_tec = usuario.getId_web();
+        //Envia para a tela de OS, qual o usuário logado
+        Bundle params = new Bundle();
+        params.putString("ID_TEC", id_tec);
+        intent.putExtras(params);
+
+        UsuarioPreferences usuarioPreferences = new UsuarioPreferences(this);
+        usuarioPreferences.setIdUser(id_tec);
+
+        /*Ver log retrofit*/
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        // set your desired log level
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        // add your other interceptors …
+
+        // add logging as last interceptor
+        httpClient.addInterceptor(logging);  // <-- this is the important line!
 
 
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ConectService.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(httpClient.build())
+                .build();
 
-        if ((usuario != null || !usuario.trim().equals("")) && (senha != null || !senha.trim().equals(""))) {
-            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-            String id_tec = helper.IdTec(usuario, usuario, senha);
-            //Envia para a tela de OS, qual o usuário logado
-            Bundle params = new Bundle();
-            params.putString("ID_TEC", id_tec);
-            intent.putExtras(params);
-
-            UsuarioPreferences usuarioPreferences = new UsuarioPreferences(this);
-            usuarioPreferences.setIdUser(id_tec);
-
-            /*Ver log retrofit*/
-            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-            // set your desired log level
-            logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-
-            OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-            // add your other interceptors …
-
-            // add logging as last interceptor
-            httpClient.addInterceptor(logging);  // <-- this is the important line!
-
-
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(ConectService.BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .client(httpClient.build())
-                    .build();
-
-            //SendDeviceId sendDeviceId = new SendDeviceId("3", "teste");
-            SendDeviceId sendDeviceId = new SendDeviceId(usuarioPreferences.getIdUser(), usuarioPreferences.getToken());
-            ConectService service = retrofit.create(ConectService.class);
-            Call<SendDeviceId> requestUsuario = service.postIdDevice(sendDeviceId); //aqui passa a classe user como parametro
+        //SendDeviceId sendDeviceId = new SendDeviceId("3", "teste");
+        SendDeviceId sendDeviceId = new SendDeviceId(usuarioPreferences.getIdUser(), usuarioPreferences.getToken());
+        ConectService service = retrofit.create(ConectService.class);
+        Call<SendDeviceId> requestUsuario = service.postIdDevice(sendDeviceId); //aqui passa a classe user como parametro
 
 //
 //            Log.d("teste", "id_user: "+usuarioPreferences.getIdUser()+" token: "+usuarioPreferences.getToken());
@@ -149,7 +143,7 @@ public class LoginActivity extends Activity {
                 }else{
                     Log.i("POST","CADASTRADO COM SUCESSO: "+response.code());
                     SendDeviceId catalog = response.body();
-//                    Log.i("POST","Resposta "+catalog.getStatus());
+    //                    Log.i("POST","Resposta "+catalog.getStatus());
                 }
             }
 
@@ -159,10 +153,9 @@ public class LoginActivity extends Activity {
             }
         });
 
-            startActivity(intent);
-            setContentView(R.layout.activity_menu);
-            finish();
-        }
+        startActivity(intent);
+        setContentView(R.layout.activity_menu);
+        finish();
     }
 
     /*public void verificaLogin (View view){

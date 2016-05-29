@@ -18,16 +18,17 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.data.DataBufferObserver;
 import com.webdroidteam.teste_layout_1.GCM.GCMRegistrationIntentService;
+import com.webdroidteam.teste_layout_1.conectService.ApiFactory;
 import com.webdroidteam.teste_layout_1.conectService.ConectService;
-import com.webdroidteam.teste_layout_1.dao.DataBase;
-import com.webdroidteam.teste_layout_1.dao.UsuarioDAO;
 import com.webdroidteam.teste_layout_1.models.ServiceCatalog;
 import com.webdroidteam.teste_layout_1.models.Usuarios;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -36,6 +37,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 public class SplashActivity extends Activity {
     /*
@@ -53,7 +59,6 @@ public class SplashActivity extends Activity {
     WifiManager adminWifi;
     private static final String TAG = "WS";
     private Usuarios usuario;
-    private UsuarioDAO usuarioDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,43 +116,30 @@ public class SplashActivity extends Activity {
 
         //Registra o receiver no retorno para a activity
 
-        usuarioDAO = new UsuarioDAO(this);
 
         //Teste de Conexão
         adminWifi = (WifiManager) SplashActivity.this.getSystemService(Context.WIFI_SERVICE);
 
         if (testa3G(this) || isConected(this)){
             //Toast.makeText(SplashActivity.this,"Entrou", Toast.LENGTH_LONG).show();
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(ConectService.BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
+//            Retrofit retrofit = new Retrofit.Builder()
+//                    .baseUrl(ConectService.BASE_URL)
+//                    .addConverterFactory(GsonConverterFactory.create())
+//                    .build();
 
-            ConectService service = retrofit.create(ConectService.class);
+
+
+            ApiFactory.conectService().listCatalog()
+            .subscribeOn(Schedulers.io())
+                    .map(r -> r.usuarios)
+                    .doOnError(error -> onError(error))
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(this::onResponse, error -> onError(error));
+
+
+
+
             /*metodo novo*/
-
-            final Callback<ServiceCatalog> requestCatalog = new Callback<ServiceCatalog>(){
-                public void success(ServiceCatalog serviceCatalog, Response response)
-                {
-                    Log.e(TAG,"Sucesso: success ");
-//                    for(Usuarios c : serviceCatalog.usuarios){
-//
-//                    }
-                }
-
-                @Override
-                public void onResponse(Call<ServiceCatalog> call, Response<ServiceCatalog> response) {
-                    Log.e(TAG,"Sucesso: onResponse ");
-                }
-
-                @Override
-                public void onFailure(Call<ServiceCatalog> call, Throwable t) {
-                    Log.e(TAG,"Erro: "+t.getMessage());
-                }
-            };
-
-
-
 
             /*Metodo antigo*/
             /*Call<ServiceCatalog> requestCatalog = service.listCatalog();
@@ -210,6 +202,23 @@ public class SplashActivity extends Activity {
                 }
             }, 3000);
         }
+    }
+
+    private void onResponse(List<Usuarios> usuarioses) {
+        Log.d(TAG,"response ");
+
+       usuario.limpaBanco();
+
+        for(Usuarios U : usuarioses){
+            U.save();
+        }
+
+        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    private void onError(Throwable error) {
+        Log.d(TAG,"error "+error.getMessage());
     }
 
     public static boolean isConected(Context context) {

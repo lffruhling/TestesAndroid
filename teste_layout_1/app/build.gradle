@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 23
@@ -17,16 +18,28 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+    retrolambda {
+        javaVersion JavaVersion.VERSION_1_6
+    }
+
 }
 
 dependencies {
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.squareup.retrofit2:retrofit:2.0.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0'
-//This line is added
+    compile 'com.squareup.retrofit2:retrofit:2.0.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+
+    //This line is added
     compile 'com.google.android.gms:play-services-gcm:8.3.0'
+
     //Reactive
     compile 'io.reactivex:rxandroid:1.0.0'
     compile 'io.reactivex:rxjava:1.1.0'
@@ -36,8 +49,15 @@ dependencies {
 
     //banco de dados android
     compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+
+    //acessórios retrofit
+    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.7.5'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
 }
 
 //This line is added
 apply plugin: 'com.google.gms.google-services'
+
 

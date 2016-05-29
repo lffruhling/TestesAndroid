@@ -3,6 +3,8 @@ package com.webdroidteam.teste_layout_1.models;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Delete;
+import com.activeandroid.query.Select;
 import com.google.gson.annotations.Expose;
 
 /**
@@ -84,5 +86,17 @@ public class Usuarios extends Model{
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public static Usuarios getResulLogin(String usuario, String email, String senha) {
+        return new Select()
+                .from(Usuarios.class)
+                .where("(usuario = ? OR email = ?) and senha =? ", usuario, email, senha)
+                .executeSingle();
+    }
+
+    public static Usuarios limpaBanco(){
+        new Delete().from(Usuarios.class).where("Id >= ?", 1).execute();
+        return null;
     }
 }

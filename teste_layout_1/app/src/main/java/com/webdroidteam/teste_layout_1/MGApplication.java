@@ -12,6 +12,6 @@ public class MGApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        ActiveAndroid.initialize(this);
+        ActiveAndroid.initialize(this, true);
     }
 }

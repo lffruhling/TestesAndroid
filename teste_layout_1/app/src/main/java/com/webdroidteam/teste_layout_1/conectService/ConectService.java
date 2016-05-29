@@ -5,6 +5,8 @@ import com.webdroidteam.teste_layout_1.SendService.RCadId;
 import com.webdroidteam.teste_layout_1.SendService.SendDeviceId;
 import com.webdroidteam.teste_layout_1.models.ServiceCatalog;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -19,7 +21,7 @@ public interface ConectService {
     public static final String BASE_URL = "http://meugerente.esy.es/api/api.php/";
 
     @GET("usuarios")
-    Call<ServiceCatalog> listCatalog();
+    Observable<ServiceCatalog> listCatalog();
 
     @GET("servicos/id")
     Call<ServiceCatalog> listServicosId(@Query("id_us") String id);
