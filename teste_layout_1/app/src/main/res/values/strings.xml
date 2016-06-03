@@ -13,6 +13,6 @@
     <string name="termo_orc">Afirmo que orcei somente os itens necessários para o pleno funcionamento do equipamento e nada além do necessário. Clique abaixo para assinar.</string>
     <string name="fim_orc">Orcamento finalizado e enviado com sucesso!</string>
     <string name="termo_exec">Senhor Cliente, assine somente se o serviço foi efetuado como o solicitado. Clique abaixo para assinar.</string>
-    <string name="fim_exec">Orden de Serviço finalizada e enviada com sucesso!</string>
+    <string name="fim_exec">Ordem de Serviço finalizada e enviada com sucesso!</string>
     <string name="external_dir">GetSignature</string>
 </resources>
