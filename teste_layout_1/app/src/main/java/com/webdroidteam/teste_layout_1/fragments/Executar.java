@@ -54,7 +54,10 @@ public class Executar extends Fragment implements ClickListener{
     public void onItemClick(Servicos servicos) {
         Intent intent = null;
         intent = new Intent(getContext(), ExecutarOs.class);
-        
+        //Envia a OS Clicada no RecyclerView
+        Bundle params = new Bundle();
+        params.putString("IdOs", servicos.getId_web());
+        intent.putExtras(params);
         startActivity(intent);
     }
 }

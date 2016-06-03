@@ -51,6 +51,30 @@ public class Servicos extends Model{
     @Column(name = "data")
     public String data;
 
+    @Expose
+    @Column(name = "end")
+    public String end;
+
+    @Expose
+    @Column(name = "nro")
+    public String nro;
+
+    public String getNro() {
+        return nro;
+    }
+
+    public void setNro(String nro) {
+        this.nro = nro;
+    }
+
+    public String getEnd() {
+        return end;
+    }
+
+    public void setEnd(String end) {
+        this.end = end;
+    }
+
     public String getConcluida() {
         return concluida;
     }
@@ -192,5 +216,12 @@ public class Servicos extends Model{
                 from(Servicos.class).
                 where("id_colab = ? and orc = 0 and (concluida isnull or concluida = 0)", id_tec).
                 execute();
+    }
+
+    public static Servicos detalhesOs(String id_os_web){
+        return new Select()
+                .from(Servicos.class)
+                .where("id_web = ?", id_os_web)
+                .executeSingle();
     }
 }

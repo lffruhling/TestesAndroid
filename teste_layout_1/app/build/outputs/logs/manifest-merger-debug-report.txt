@@ -172,10 +172,10 @@ activity#com.webdroidteam.teste_layout_1.bodyExecutar.ExecutarOs
 ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:67:9-61
 	android:name
 		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:67:19-58
-activity#com.webdroidteam.teste_layout_1.bodyExecutar.ProdutosOs
-ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:68:9-61
+activity#com.webdroidteam.teste_layout_1.bodyExecutar.ProdutosActivity
+ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:68:9-67
 	android:name
-		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:68:19-58
+		ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:68:19-64
 activity#com.webdroidteam.teste_layout_1.bodyExecutar.ItemProdutoOs
 ADDED from C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\teste_layout_1\app\src\main\AndroidManifest.xml:69:9-64
 	android:name

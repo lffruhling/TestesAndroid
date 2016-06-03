@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/cpo_ass_exec_obs"
         android:hint="Observações"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
         android:textSize="22dp"/>
 
     <CheckBox
@@ -24,7 +24,6 @@
         android:text="Cliente Ausente"
         android:id="@+id/ckb_ass_exec_ausente"
         android:layout_below="@id/cpo_ass_exec_obs"
-        android:layout_marginBottom="10dp"
         android:textSize="@dimen/texto_normal"/>
 
     <TextView
@@ -46,7 +45,7 @@
         android:id="@+id/img_ass_exec_ass"
         android:layout_below="@+id/txt_ass_exec_termo"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="5dp"
         android:onClick="assinarExec"
         android:background="@drawable/border_image"
         android:tag="img_ass_orc"/>

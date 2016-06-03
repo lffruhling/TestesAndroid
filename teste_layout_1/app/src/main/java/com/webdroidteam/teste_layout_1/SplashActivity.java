@@ -156,6 +156,8 @@ public class SplashActivity extends Activity {
 
     private void onError(Throwable error) {
         Log.d(TAG,"error "+error.getMessage());
+        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+        startActivity(intent);
     }
 
     public static boolean isConected(Context context) {

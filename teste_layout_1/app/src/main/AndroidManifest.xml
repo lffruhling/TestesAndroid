@@ -65,7 +65,7 @@
         <activity android:name=".bodyConcluidas.ItemConcluida" />
         <activity android:name=".bodyExecutar.ItemExecutar" />
         <activity android:name=".bodyExecutar.ExecutarOs" />
-        <activity android:name=".bodyExecutar.ProdutosOs" />
+        <activity android:name=".bodyExecutar.ProdutosActivity" />
         <activity android:name=".bodyExecutar.ItemProdutoOs" />
         <activity android:name=".bodyExecutar.FotosOs" />
         <activity android:name=".bodyExecutar.AssExecutar" />

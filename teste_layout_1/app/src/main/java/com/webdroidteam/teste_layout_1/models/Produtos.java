@@ -3,6 +3,7 @@ package com.webdroidteam.teste_layout_1.models;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Select;
 import com.google.gson.annotations.Expose;
 
 import java.util.List;
@@ -85,5 +86,12 @@ public class Produtos extends Model{
 
     public void setQuant(String quant) {
         this.quant = quant;
+    }
+
+    public static List<Produtos> detalhesProd(String id_os_web){
+        return new Select()
+                .from(Produtos.class)
+                .where("id_os = ?", id_os_web)
+                .execute();
     }
 }

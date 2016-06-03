@@ -7,21 +7,22 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.webdroidteam.teste_layout_1.bodyExecutar.ProdutosOs">
+    tools:context=".bodyExecutar.ProdutosActivity">
 
-
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/lv_prod_os"
-        android:layout_marginBottom="50dp"></ListView>
+        android:layout_weight="1"
+        android:layout_marginBottom="45dp"/>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/btn_footer_height"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="bottom">
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

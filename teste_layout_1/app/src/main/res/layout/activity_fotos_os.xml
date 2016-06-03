@@ -9,9 +9,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".bodyExecutar.FotosOs">
 
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="350dp"
         android:orientation="vertical"
         android:id="@+id/lin_fotos_os_fotos">
 
@@ -28,12 +29,12 @@
             android:id="@+id/imf_fotos_os_f3"
             android:tag="img3"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/btn_footer_height"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:layout_below="@+id/lin_fotos_os_fotos"
         android:layout_marginTop="10dp">
         <Button
             android:layout_width="match_parent"
@@ -50,6 +51,5 @@
             android:onClick="finalizar"
             android:layout_weight="1" />
     </LinearLayout>
-
 
 </RelativeLayout>
