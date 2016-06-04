@@ -3,6 +3,8 @@ package com.webdroidteam.teste_layout_1.conectService;
 import com.google.android.gms.common.data.DataBufferObserver;
 import com.webdroidteam.teste_layout_1.SendService.RCadId;
 import com.webdroidteam.teste_layout_1.SendService.SendDeviceId;
+import com.webdroidteam.teste_layout_1.SendService.SendExecutadas;
+import com.webdroidteam.teste_layout_1.SendService.SendOrcadas;
 import com.webdroidteam.teste_layout_1.models.ServiceCatalog;
 
 import java.util.List;
@@ -28,4 +30,10 @@ public interface ConectService {
 
     @POST("device/registration")
     Call<SendDeviceId> postIdDevice(@Body SendDeviceId sendDeviceId);
+
+    @POST("os/finaliza/exec")
+    Call<SendExecutadas> postExecutas(@Body SendExecutadas sendExecutadas);
+
+    @POST("os/finaliza/orc")
+    Call<SendOrcadas> postOrcadas(@Body SendOrcadas sendOrcadas);
 }

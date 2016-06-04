@@ -15,7 +15,7 @@ import com.webdroidteam.teste_layout_1.R;
 import java.io.File;
 
 public class FotosOs extends AppCompatActivity {
-
+    private String idOs;
     private static final int FAZER_FOTO = 123;
     private String localArquivo;
     public String nomeComponente;
@@ -24,6 +24,11 @@ public class FotosOs extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fotos_os);
+
+        //Recebe id da os para buscar os dados
+        Intent intent = getIntent();
+        Bundle params = intent.getExtras();
+        idOs = params.getString("IdOs");
     }
 
     public void  voltar (View view){
@@ -31,7 +36,15 @@ public class FotosOs extends AppCompatActivity {
     }
 
     public void finalizar(View view){
-        startActivity(new Intent(this, AssExecutar.class));
+        Intent intent = null;
+        intent = new Intent(this, AssExecutar.class);
+        //Envia a OS Clicada no RecyclerView
+        Bundle params = new Bundle();
+        params.putString("IdOs", idOs);
+        intent.putExtras(params);
+        startActivity(intent);
+
+//        startActivity(new Intent(this, AssExecutar.class));
         finish();
     }
 

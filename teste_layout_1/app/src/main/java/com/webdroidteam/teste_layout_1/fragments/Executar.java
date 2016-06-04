@@ -36,6 +36,22 @@ public class Executar extends Fragment implements ClickListener{
         if (container == null) {
             return null;
         }
+
+        return autalizaLista(inflater);
+    }
+
+    @Override
+    public void onItemClick(Servicos servicos) {
+        Intent intent = null;
+        intent = new Intent(getContext(), ExecutarOs.class);
+        //Envia a OS Clicada no RecyclerView
+        Bundle params = new Bundle();
+        params.putString("IdOs", servicos.getId_web());
+        intent.putExtras(params);
+        startActivity(intent);
+    }
+
+    public View  autalizaLista(LayoutInflater inflater){
         View rootView = inflater.inflate(R.layout.activity_executar,null);
 
         rvExecutar= (RecyclerView) rootView.findViewById(R.id.lvListaExec);
@@ -50,14 +66,10 @@ public class Executar extends Fragment implements ClickListener{
         return rootView;
     }
 
-    @Override
-    public void onItemClick(Servicos servicos) {
-        Intent intent = null;
-        intent = new Intent(getContext(), ExecutarOs.class);
-        //Envia a OS Clicada no RecyclerView
-        Bundle params = new Bundle();
-        params.putString("IdOs", servicos.getId_web());
-        intent.putExtras(params);
-        startActivity(intent);
+    public void setListServicos(List<Servicos> servicosList){
+        adapter = new AdapterItemExecutar(getActivity(), servicosList, this);
+
+        rvExecutar.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 }

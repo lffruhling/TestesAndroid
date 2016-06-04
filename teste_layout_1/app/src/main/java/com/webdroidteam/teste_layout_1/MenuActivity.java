@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Process;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
@@ -25,6 +26,7 @@ import android.widget.TabHost.TabContentFactory;
 import android.widget.Toast;
 
 import com.webdroidteam.teste_layout_1.adapter.ViewPagerAdapter;
+import com.webdroidteam.teste_layout_1.bodyOrcar.CriarOrcamento;
 import com.webdroidteam.teste_layout_1.conectService.ApiFactory;
 import com.webdroidteam.teste_layout_1.conectService.ConectService;
 import com.webdroidteam.teste_layout_1.fragments.Concluidas;
@@ -131,6 +133,9 @@ public class MenuActivity extends FragmentActivity implements TabHost.OnTabChang
                 }
             }
         }
+
+        Executar executar = new Executar();
+        executar.setListServicos(servicoses);
     }
 
     private void onError(Throwable error) {
@@ -232,12 +237,42 @@ public class MenuActivity extends FragmentActivity implements TabHost.OnTabChang
         return false;
     }
 
-    public void logout (View view){
+    public void sincOs (View view){
+        Toast.makeText(this, "Atualizando...", Toast.LENGTH_SHORT).show();
 
-//        Toast.makeText(this, "teste", Toast.LENGTH_SHORT).show();
-        //Apagar preferences
+//        //Recebe parametro da tela de login
+//        Intent intent = getIntent();
+//        if(intent != null){
+//            Bundle params = intent.getExtras();
+//
+//            if(params != null){
+//                String id_tec = params.getString("ID_TEC");
+//
+//                ApiFactory.conectService().listServicosId(id_tec)
+//                        .subscribeOn(Schedulers.io())
+//                        .map(r -> r.servicos)
+//                        .doOnError(error -> onError(error))
+//                        .observeOn(AndroidSchedulers.mainThread())
+//                        .subscribe(this::onResponse, error -> onError(error));
+//            }
+//        }
+
+        //BruteForceMethod
         finish();
         System.exit(0);
 
+
+    }
+
+    public void logout (View view){
+
+        finish();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        Process.killProcess(Process.myPid());
+        super.onDestroy();
     }
 }

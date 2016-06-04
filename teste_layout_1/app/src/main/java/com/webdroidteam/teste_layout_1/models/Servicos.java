@@ -5,6 +5,7 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
+import com.activeandroid.query.Update;
 import com.google.gson.annotations.Expose;
 
 import java.util.List;
@@ -223,5 +224,12 @@ public class Servicos extends Model{
                 .from(Servicos.class)
                 .where("id_web = ?", id_os_web)
                 .executeSingle();
+    }
+
+    public static Servicos AtualizaOsExec(String id_web){
+        new Update(Servicos.class)
+                .set("concluida = 1")
+                .where("id_web = ?", id_web).execute();
+        return null;
     }
 }

@@ -18,7 +18,7 @@ import com.webdroidteam.teste_layout_1.models.Produtos;
 import com.webdroidteam.teste_layout_1.preferences.UsuarioPreferences;
 
 public class ProdutosActivity extends Activity {
-    public String idOs;
+    private String idOs;
     private RecyclerView rvProdutos;
     private AdapterProduto adapter;
     private RecyclerView.LayoutManager lmRecycler;
@@ -48,6 +48,17 @@ public class ProdutosActivity extends Activity {
 
         // specify an adapter (see also next example)
         adapter = new AdapterProduto(this,Produtos.detalhesProd(idOs));
+
+        if(adapter.getItemCount() < 1){
+            Intent nIntent = null;
+            nIntent = new Intent(this, FotosOs.class);
+            //Envia a OS Clicada no RecyclerView
+            Bundle nParams = new Bundle();
+            nParams.putString("IdOs", idOs);
+            nIntent.putExtras(nParams);
+            startActivity(nIntent);
+            finish();
+        }
         rvProdutos.setAdapter(adapter);
     }
 
@@ -58,7 +69,16 @@ public class ProdutosActivity extends Activity {
     }
 
     public void fotos_os(View view){
-        startActivity(new Intent(this, FotosOs.class));
+
+        Intent intent = null;
+        intent = new Intent(this, FotosOs.class);
+        //Envia a OS Clicada no RecyclerView
+        Bundle params = new Bundle();
+        params.putString("IdOs", idOs);
+        intent.putExtras(params);
+        startActivity(intent);
+
+//        startActivity(new Intent(this, FotosOs.class));
         finish();
     }
 }
