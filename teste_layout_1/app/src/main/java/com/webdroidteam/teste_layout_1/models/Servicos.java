@@ -232,4 +232,11 @@ public class Servicos extends Model{
                 .where("id_web = ?", id_web).execute();
         return null;
     }
+
+    public static Servicos AtualizaOsOrc(String id_web){
+        new Update(Servicos.class)
+                .set("concluida = 1")
+                .where("id_web = ?", id_web).execute();
+        return null;
+    }
 }

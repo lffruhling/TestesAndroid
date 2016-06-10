@@ -23,12 +23,6 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.SimpleVi
     private Context context;
     private List<Produtos> itens;
 
-  /*  public AdapterProduto(Context context, List<Produtos> itens){
-        this.itens = itens;
-        this.context = context;
-        Log.d("SQL", "total: "+itens.size());
-    }*/
-
     public AdapterProduto(Context context, List<Produtos> itens) {
         context = context;
         this.itens = itens;

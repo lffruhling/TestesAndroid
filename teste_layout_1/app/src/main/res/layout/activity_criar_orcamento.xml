@@ -27,19 +27,35 @@
             android:textSize="20sp"/>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="4dp"
+            android:layout_height="wrap_content"
+            android:text="Produtos para Orçar"
+            android:id="@+id/txt_ProdOrc"
             android:layout_below="@+id/txt_new_orc_Cliente"
-            android:id="@+id/txt_new_orc_linha"
-            android:background="@color/txt_linha"
-            android:layout_marginBottom="10dp"/>
-
-        <ListView
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:textSize="20sp"
+            android:gravity="center"/>
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/lv_new_orc"
-            android:layout_below="@+id/txt_new_orc_linha"
-            android:layout_marginBottom="50dp"></ListView>
+            android:layout_height="4dp"
+            android:layout_below="@+id/txt_ProdOrc"
+            android:id="@+id/txt_new_orc_linha"
+            android:background="@color/txt_linha"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adicionar Novo Produto"
+        android:id="@+id/btnNewProd"
+        android:layout_below="@+id/txt_new_orc_linha"
+        android:onClick="addIten"/>
 
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lv_new_orc"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/btnNewProd"
+        android:layout_marginBottom="45dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

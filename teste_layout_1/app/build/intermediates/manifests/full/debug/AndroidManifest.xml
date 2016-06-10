@@ -8,6 +8,7 @@
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="23" />
+
     <!--
             Adding permissions
             -internet
@@ -42,10 +43,10 @@
             android:value="base.db" />
         <meta-data
             android:name="AA_DB_VERSION"
-            android:value="1" />
+            android:value="2" />
         <meta-data
             android:name="AA_MODELS"
-            android:value="com.webdroidteam.teste_layout_1.models.Usuarios, com.webdroidteam.teste_layout_1.models.Produtos, com.webdroidteam.teste_layout_1.models.Servicos" />
+            android:value="com.webdroidteam.teste_layout_1.models.Usuarios, com.webdroidteam.teste_layout_1.models.Produtos, com.webdroidteam.teste_layout_1.models.Servicos, com.webdroidteam.teste_layout_1.models.NovoProdutoOrcado" />
 
         <activity
             android:name="com.webdroidteam.teste_layout_1.SplashActivity"
@@ -88,7 +89,7 @@
         <activity android:name="com.webdroidteam.teste_layout_1.bodyExecutar.FimExecutar" />
         <activity android:name="com.webdroidteam.teste_layout_1.SignActivity" />
 
-<!--             GCM Receiver -->
+        <!-- GCM Receiver -->
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
             android:exported="true"
@@ -100,7 +101,7 @@
             </intent-filter>
         </receiver>
 
-<!--             GCM Receiver Service -->
+        <!-- GCM Receiver Service -->
         <service
             android:name="com.webdroidteam.teste_layout_1.GCM.GCMPushReceiverService"
             android:exported="false" >
@@ -109,7 +110,7 @@
             </intent-filter>
         </service>
 
-<!--             GCM Registration Intent Service -->
+        <!-- GCM Registration Intent Service -->
         <service
             android:name="com.webdroidteam.teste_layout_1.GCM.GCMRegistrationIntentService"
             android:exported="false" >
@@ -117,6 +118,8 @@
                 <action android:name="com.google.android.gms.iid.InstanceID" />
             </intent-filter>
         </service>
+
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyOrcar.NovoProdutoCadActivity" />
 
         <meta-data
             android:name="com.google.android.gms.version"

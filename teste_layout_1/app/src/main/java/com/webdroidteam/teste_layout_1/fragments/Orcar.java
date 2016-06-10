@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.webdroidteam.teste_layout_1.R;
 import com.webdroidteam.teste_layout_1.adapter.AdapterItemOrcar;
+import com.webdroidteam.teste_layout_1.bodyExecutar.ExecutarOs;
 import com.webdroidteam.teste_layout_1.bodyOrcar.CriarOrcamento;
 import com.webdroidteam.teste_layout_1.models.Servicos;
 import com.webdroidteam.teste_layout_1.models.Usuarios;
@@ -65,8 +66,15 @@ public class Orcar extends Fragment implements ClickListener {
 
     @Override
     public void onItemClick(Servicos servicos) {
+//        Intent intent = null;
+//        intent = new Intent(getContext(), CriarOrcamento.class);
+//        startActivity(intent);
         Intent intent = null;
         intent = new Intent(getContext(), CriarOrcamento.class);
+        //Envia a OS Clicada no RecyclerView
+        Bundle params = new Bundle();
+        params.putString("IdOs", servicos.getId_web());
+        intent.putExtras(params);
         startActivity(intent);
     }
 }

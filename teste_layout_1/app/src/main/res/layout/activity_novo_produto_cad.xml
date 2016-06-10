@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.webdroidteam.teste_layout_1.bodyOrcar.NovoProdutoCadActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_titulo_PrdoAdd"
+        android:text="Produtos Adicionais"
+        android:textColor="@color/colorPrimary"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@+id/txt_titulo_PrdoAdd"
+        android:id="@+id/txt_linha"
+        android:background="@color/txt_linha"
+        android:layout_marginBottom="10dp"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lv_prod_cad"
+        android:layout_marginBottom="45dp"
+        android:layout_below="@+id/txt_linha"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_footer_height"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Voltar"
+            android:id="@+id/btnVoltar"
+            android:layout_weight="1"
+            android:onClick="voltar"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Finalizar"
+            android:id="@+id/btnFinalizar"
+            android:onClick="finalizar"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</RelativeLayout>

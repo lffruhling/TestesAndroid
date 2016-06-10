@@ -7,36 +7,73 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.webdroidteam.teste_layout_1.bodyExecutar.ItemProdutoOs">
+    tools:context="com.webdroidteam.teste_layout_1.bodyExecutar.ItemProdutoOs"
+    android:background="#DCDCDC"
+    android:layout_marginBottom="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:id="@+id/lin_item_prod">
+        android:id="@+id/lin_item_prod"
+        >
 
-        <TextView
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txt_item_prod_os_prod"
-            android:text="Produto1"
-            android:textSize="@dimen/texto_normal"
-            android:layout_margin="5dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Produto: "
+                android:textSize="@dimen/texto_normal"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_item_prod_os_prod"
+                android:text="Produto1"
+                android:textSize="@dimen/texto_normal"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txt_item_prod_os_grupo"
-            android:text="Grupo de Produto"
-            android:textSize="@dimen/texto_normal"
-            android:layout_margin="5dp"/>
-        <TextView
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Grupo: "
+                android:id="@+id/txt_item_prod_group"
+                android:textSize="@dimen/texto_normal"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_item_prod_os_grupo"
+                android:text="Grupo de Produto"
+                android:textSize="@dimen/texto_normal"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quantidade: "
+                android:textSize="@dimen/texto_normal"
+                />
+            <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txt_item_prod_quant"
             android:text="Quantidade: 10"
             android:textSize="@dimen/texto_normal"
-            android:layout_margin="5dp"/>
+            />
+        </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="4dp"
