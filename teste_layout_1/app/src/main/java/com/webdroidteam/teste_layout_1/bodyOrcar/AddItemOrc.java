@@ -66,6 +66,8 @@ public class AddItemOrc extends AppCompatActivity {
             novoProdutoOrcado.quant = quant;
             novoProdutoOrcado.save();
             Toast.makeText(this, "Produto adicionado com sucesso.", Toast.LENGTH_LONG).show();
+            tVDesc.setText("");
+            tVQuant.setText("");
         }
     }
 

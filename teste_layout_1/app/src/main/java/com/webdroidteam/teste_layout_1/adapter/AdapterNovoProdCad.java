@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.webdroidteam.teste_layout_1.R;
+import com.webdroidteam.teste_layout_1.fragments.ClickListenerProd;
 import com.webdroidteam.teste_layout_1.models.NovoProdutoOrcado;
 
 import java.security.PrivateKey;
@@ -20,10 +21,12 @@ import java.util.List;
 public class AdapterNovoProdCad extends RecyclerView.Adapter<AdapterNovoProdCad.SimpleViewHolder>{
     private Context context;
     private List<NovoProdutoOrcado> itens;
+    private ClickListenerProd clickListner;
 
-    public AdapterNovoProdCad(Context context, List<NovoProdutoOrcado> itens) {
+    public AdapterNovoProdCad(Context context, List<NovoProdutoOrcado> itens, ClickListenerProd clickListner) {
         this.context = context;
         this.itens = itens;
+        this.clickListner = clickListner;
     }
 
     @Override
@@ -39,6 +42,12 @@ public class AdapterNovoProdCad extends RecyclerView.Adapter<AdapterNovoProdCad.
         holder.quantidade.setText(novoProdutoOrcado.quant);
         holder.grupo.setVisibility(View.GONE);
         holder.grupoLabel.setVisibility(View.GONE);
+//        holder.lvItemRow.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickListner.onItemClick(novoProdutoOrcado);
+//            }
+//        });
     }
 
     @Override
@@ -51,14 +60,14 @@ public class AdapterNovoProdCad extends RecyclerView.Adapter<AdapterNovoProdCad.
         TextView quantidade;
         TextView grupo;
         TextView grupoLabel;
-        RelativeLayout rlItemRow;
+        RelativeLayout lvItemRow;
         public SimpleViewHolder(View itemView){
             super(itemView);
             desc = (TextView) itemView.findViewById(R.id.txt_item_prod_os_prod);
             quantidade = (TextView) itemView.findViewById(R.id.txt_item_prod_quant);
             grupo = (TextView) itemView.findViewById(R.id.txt_item_prod_os_grupo);
             grupoLabel = (TextView) itemView.findViewById(R.id.txt_item_prod_group);
-            rlItemRow = (RelativeLayout) itemView.findViewById(R.id.rlItemRow);
+            lvItemRow = (RelativeLayout) itemView.findViewById(R.id.lv_prod_cad);
         }
     }
 }

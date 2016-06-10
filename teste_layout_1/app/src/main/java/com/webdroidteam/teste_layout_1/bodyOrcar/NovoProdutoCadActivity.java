@@ -5,13 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.webdroidteam.teste_layout_1.R;
 import com.webdroidteam.teste_layout_1.adapter.AdapterNovoProdCad;
+import com.webdroidteam.teste_layout_1.fragments.ClickListenerProd;
 import com.webdroidteam.teste_layout_1.models.NovoProdutoOrcado;
 
-public class NovoProdutoCadActivity extends AppCompatActivity {
+public class NovoProdutoCadActivity extends AppCompatActivity implements ClickListenerProd {
 
     private String idOs;
     private RecyclerView rvProdutos;
@@ -41,7 +44,7 @@ public class NovoProdutoCadActivity extends AppCompatActivity {
         rvProdutos.setLayoutManager(lmRecycler);
 
         // specify an adapter (see also next example)
-        adapter = new AdapterNovoProdCad(this,NovoProdutoOrcado.detalhesNovoProdcad(idOs));
+        adapter = new AdapterNovoProdCad(this,NovoProdutoOrcado.detalhesNovoProdcad(idOs), this);
         rvProdutos.setAdapter(adapter);
     }
 
@@ -60,4 +63,11 @@ public class NovoProdutoCadActivity extends AppCompatActivity {
 
         finish();
     }
+
+    @Override
+    public void onItemClick(NovoProdutoOrcado novoProdutoOrcado) {
+        String idProd = novoProdutoOrcado.getId().toString();
+        Toast.makeText(this,idProd,Toast.LENGTH_LONG).show();
+    }
+
 }

@@ -32,9 +32,11 @@ import com.webdroidteam.teste_layout_1.conectService.ConectService;
 import com.webdroidteam.teste_layout_1.fragments.Concluidas;
 import com.webdroidteam.teste_layout_1.fragments.Executar;
 import com.webdroidteam.teste_layout_1.fragments.Orcar;
+import com.webdroidteam.teste_layout_1.models.NovoProdutoOrcado;
 import com.webdroidteam.teste_layout_1.models.Produtos;
 import com.webdroidteam.teste_layout_1.models.ServiceCatalog;
 import com.webdroidteam.teste_layout_1.models.Servicos;
+import com.webdroidteam.teste_layout_1.preferences.UsuarioPreferences;
 import com.webdroidteam.teste_layout_1.util.Mensagem;
 
 import retrofit2.Call;
@@ -239,40 +241,34 @@ public class MenuActivity extends FragmentActivity implements TabHost.OnTabChang
 
     public void sincOs (View view){
         Toast.makeText(this, "Atualizando...", Toast.LENGTH_SHORT).show();
-
-//        //Recebe parametro da tela de login
-//        Intent intent = getIntent();
-//        if(intent != null){
-//            Bundle params = intent.getExtras();
-//
-//            if(params != null){
-//                String id_tec = params.getString("ID_TEC");
-//
-//                ApiFactory.conectService().listServicosId(id_tec)
-//                        .subscribeOn(Schedulers.io())
-//                        .map(r -> r.servicos)
-//                        .doOnError(error -> onError(error))
-//                        .observeOn(AndroidSchedulers.mainThread())
-//                        .subscribe(this::onResponse, error -> onError(error));
-//            }
-//        }
-
-        //BruteForceMethod
+        Intent iinent= new Intent(MenuActivity.this,MenuActivity.class);
+        startActivity(iinent);
         finish();
-        System.exit(0);
-
 
     }
 
-    public void logout (View view){
-
+    public void sair (View view){
         finish();
-
     }
 
     @Override
     protected void onDestroy() {
         Process.killProcess(Process.myPid());
         super.onDestroy();
+    }
+
+    public void logout(View view){
+        UsuarioPreferences usuarioPreferences = new UsuarioPreferences(this);
+        usuarioPreferences.setIdUser("");
+        usuarioPreferences.setToken("");
+
+        Servicos servicos = new Servicos();
+        servicos.limpaBanco();
+        Produtos produtos = new Produtos();
+        produtos.limpaBanco();
+        NovoProdutoOrcado novoProdutoOrcado = new NovoProdutoOrcado();
+        novoProdutoOrcado.limpaBanco();
+
+        finish();
     }
 }

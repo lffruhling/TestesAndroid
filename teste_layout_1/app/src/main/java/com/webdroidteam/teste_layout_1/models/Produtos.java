@@ -3,6 +3,7 @@ package com.webdroidteam.teste_layout_1.models;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.google.gson.annotations.Expose;
 
@@ -93,5 +94,10 @@ public class Produtos extends Model{
                 .from(Produtos.class)
                 .where("id_os = ?", id_os_web)
                 .execute();
+    }
+
+    public static Produtos limpaBanco(){
+        new Delete().from(Produtos.class).where("Id >= ?", 1).execute();
+        return null;
     }
 }

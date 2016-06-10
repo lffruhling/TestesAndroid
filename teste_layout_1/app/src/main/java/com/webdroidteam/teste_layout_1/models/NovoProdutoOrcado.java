@@ -68,4 +68,9 @@ public class NovoProdutoOrcado extends Model {
         return null;
     }
 
+    public static NovoProdutoOrcado limpaBanco(){
+        new Delete().from(NovoProdutoOrcado.class).where("Id >= ?", 1).execute();
+        return null;
+    }
+
 }

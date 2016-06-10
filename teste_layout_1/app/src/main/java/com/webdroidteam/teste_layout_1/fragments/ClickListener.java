@@ -1,5 +1,6 @@
 package com.webdroidteam.teste_layout_1.fragments;
 
+import com.webdroidteam.teste_layout_1.models.NovoProdutoOrcado;
 import com.webdroidteam.teste_layout_1.models.Servicos;
 
 /**
