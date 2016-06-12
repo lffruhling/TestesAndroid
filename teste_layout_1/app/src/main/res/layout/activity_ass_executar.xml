@@ -24,7 +24,8 @@
         android:text="Cliente Ausente"
         android:id="@+id/ckb_ass_exec_ausente"
         android:layout_below="@id/cpo_ass_exec_obs"
-        android:textSize="@dimen/texto_normal"/>
+        android:textSize="@dimen/texto_normal"
+        android:visibility="gone"/>
 
     <TextView
         android:layout_width="match_parent"
