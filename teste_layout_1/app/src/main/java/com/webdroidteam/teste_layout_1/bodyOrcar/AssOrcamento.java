@@ -15,6 +15,7 @@ import com.webdroidteam.teste_layout_1.SendService.SendOrcadas;
 import com.webdroidteam.teste_layout_1.SignActivity;
 import com.webdroidteam.teste_layout_1.conectService.ConectService;
 import com.webdroidteam.teste_layout_1.models.Servicos;
+import com.webdroidteam.teste_layout_1.preferences.UsuarioPreferences;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -44,6 +45,10 @@ public class AssOrcamento extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle params = intent.getExtras();
         idOs = params.getString("IdOs");
+
+        UsuarioPreferences usuarioPreferences = new UsuarioPreferences(this);
+        idOs = usuarioPreferences.getOsUser();
+
     }
 
     public void assinarOrc(View view){

@@ -49,6 +49,9 @@ public class Executar extends Fragment implements ClickListener{
         params.putString("IdOs", servicos.getId_web());
         intent.putExtras(params);
         startActivity(intent);
+
+        UsuarioPreferences usuarioPreferences = new UsuarioPreferences(getContext());
+        usuarioPreferences.setOsUser(servicos.getId_web());
     }
 
     public View  autalizaLista(LayoutInflater inflater){

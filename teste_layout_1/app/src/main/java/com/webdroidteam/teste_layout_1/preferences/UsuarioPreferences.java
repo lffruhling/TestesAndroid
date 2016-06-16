@@ -13,7 +13,8 @@ public class UsuarioPreferences extends Preferences{
 
     private enum USER{
         ID_USER,
-        TOKEN
+        TOKEN,
+        OS_USER
     }
 
     public void setIdUser(String idUser){
@@ -29,5 +30,13 @@ public class UsuarioPreferences extends Preferences{
 
     public String getToken(){
         return this.<String>getValue(USER.TOKEN.toString(), "");
+    }
+
+    public void setOsUser(String OsUser){
+        this.<String>setValue(USER.OS_USER.toString(),OsUser);
+    }
+
+    public String getOsUser(){
+        return this.<String>getValue(USER.OS_USER.toString(),"");
     }
 }
