@@ -8,34 +8,137 @@
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="23" />
+    <!--
+            Adding permissions
+            -internet
+            -Wake_Lock
+            -C2D_Message
+    -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <permission
+        android:name="net.simplifiedcoding.androidgcm.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="net.simplifiedcoding.androidgcm.permission.C2D_MESSAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <!-- Permissions required for GCM -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <application
+        android:name="com.webdroidteam.teste_layout_1.MGApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.webdroidteam.teste_layout_1.SplashActivity" >
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="gerente.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="1" />
+        <meta-data
+            android:name="AA_MODELS"
+            android:value="com.webdroidteam.teste_layout_1.models.Usuario,com.webdroidteam.teste_layout_1.models.Servicos, com.webdroidteam.teste_layout_1.models.Produtos" />
+
+        <activity
+            android:name="com.webdroidteam.teste_layout_1.SplashActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.webdroidteam.teste_layout_1.LoginActivity" >
+        <activity
+            android:name="com.webdroidteam.teste_layout_1.LoginActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MainActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="com.webdroidteam.teste_layout_1.MenuActivity" >
+        <activity
+            android:name="com.webdroidteam.teste_layout_1.MenuActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MainActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyOrcar.CriarOrcamento" />
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyOrcar.AssOrcamento" />
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyOrcar.FimOrcamento" />
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyOrcar.AddItemOrc" />
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyConcluidas.ItemConcluida" />
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyExecutar.ItemExecutar" />
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyExecutar.ExecutarOs" />
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyExecutar.ProdutosOs" />
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyExecutar.ItemProdutoOs" />
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyExecutar.FotosOs" />
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyExecutar.AssExecutar" />
+        <activity android:name="com.webdroidteam.teste_layout_1.bodyExecutar.FimExecutar" />
+        <activity android:name="com.webdroidteam.teste_layout_1.SignActivity" />
+
+<!--             GCM Receiver -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.gnirt69.gcmexample" />
+            </intent-filter>
+        </receiver>
+
+<!--             GCM Receiver Service -->
+        <service
+            android:name="com.webdroidteam.teste_layout_1.GCM.GCMPushReceiverService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+
+<!--             GCM Registration Intent Service -->
+        <service
+            android:name="com.webdroidteam.teste_layout_1.GCM.GCMRegistrationIntentService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <provider
+            android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"
+            android:authorities="com.webdroidteam.teste_layout_1.google_measurement_service"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>

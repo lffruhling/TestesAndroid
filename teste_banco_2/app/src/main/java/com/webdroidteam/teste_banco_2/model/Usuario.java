@@ -10,13 +10,6 @@ public class Usuario {
     private String senha;
     private String created_ad;
 
-    public String getCreated_ad() {
-        return created_ad;
-    }
-
-    public void setCreated_ad(String created_ad) {
-        this.created_ad = created_ad;
-    }
 
     public Usuario(int id, String nome, String login, String senha, String created_ad){
         this._id = id;
@@ -59,7 +52,14 @@ public class Usuario {
         return senha;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setSenha(String senha) { this.senha = senha;  }
+
+    public String getCreated_ad() {
+        return created_ad;
     }
+
+    public void setCreated_ad(String created_ad) {
+        this.created_ad = created_ad;
+    }
+
 }

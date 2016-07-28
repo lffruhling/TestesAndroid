@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="5sp">
+
+    <TextView
+        android:id="@+id/txt_item_IdOs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descrição: teste"
+        android:textSize="@dimen/texto_normal"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/txt_item_quant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quantidade: 1"
+        android:textSize="@dimen/texto_normal"
+        android:layout_below="@+id/txt_item_IdOs"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_item_quant"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:id="@+id/lin_item_orc_fotos">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:id="@+id/txt_item_orc_foto"
+            android:text="Fotos: "
+            android:textSize="22sp"
+            android:gravity="center"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/img_item_orc_foto1"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/img_amostra_128"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/img_item_orc_foto2"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/img_amostra_128"
+            android:layout_weight="1"/>
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/img_item_orc_foto3"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/img_amostra_128"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

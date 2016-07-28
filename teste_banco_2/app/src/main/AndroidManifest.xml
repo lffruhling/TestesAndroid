@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="Todo List"/>
+            android:label="Todo List" />
         <activity
             android:name=".LoginActivity"
             android:label="Login">
@@ -22,16 +22,18 @@
         </activity>
         <activity
             android:name=".CadUsuario"
-            android:label="Cadastro de Usuário"/>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ListUsuariosActivity"/>
+            android:label="Cadastro de Usuário" />
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".ListUsuariosActivity" />
+
         <activity
             android:name=".ListUsuariosActivity"
             android:label="Usuários">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
         </activity>
     </application>
 

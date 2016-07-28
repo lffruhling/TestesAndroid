@@ -31,17 +31,6 @@ public class DataBase extends SQLiteOpenHelper{
                     "tarefa text not null, dt_criacao text, dt_completado text);");
 
         // Cadastra usuário padrão
-       /* // FAIL
-       ContentValues map = new ContentValues();
-        map.put("nome","administrado");
-        map.put("login","admin");
-        map.put("senha","123");
-        try{
-            getWritableDatabase().insert(Usuarios.TABELA,null,map);
-        }catch (SQLException e){
-            Log.e("SQL->ERROR: ", e.toString());
-        }*/
-
         db.execSQL("insert into usuarios (nome, login, senha) VALUES ('ADMIN', 'admin', '123');");
     }
 

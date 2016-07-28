@@ -2,34 +2,107 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.webdroidteam.teste_layout_1"
     android:screenOrientation="portrait">
+    <!--
+            Adding permissions
+            -internet
+            -Wake_Lock
+            -C2D_Message
+        -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <permission
+        android:name="net.simplifiedcoding.androidgcm.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="net.simplifiedcoding.androidgcm.permission.C2D_MESSAGE" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity">
+        android:theme="@style/AppTheme"
+        android:name=".MGApplication">
+        <meta-data android:name="AA_DB_NAME" android:value="gerente.db" />
+        <meta-data android:name="AA_DB_VERSION" android:value="1" />
+        <meta-data
+            android:name="AA_MODELS"
+            android:value="com.webdroidteam.teste_layout_1.models.Usuario,com.webdroidteam.teste_layout_1.models.Servicos, com.webdroidteam.teste_layout_1.models.Produtos" />
+
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity">
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MainActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuActivity">
+        <activity
+            android:name=".MenuActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MainActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".bodyOrcar.CriarOrcamento" />
+        <activity android:name=".bodyOrcar.AssOrcamento" />
+        <activity android:name=".bodyOrcar.FimOrcamento" />
+        <activity android:name=".bodyOrcar.AddItemOrc" />
+        <activity android:name=".bodyConcluidas.ItemConcluida" />
+        <activity android:name=".bodyExecutar.ItemExecutar" />
+        <activity android:name=".bodyExecutar.ExecutarOs" />
+        <activity android:name=".bodyExecutar.ProdutosOs" />
+        <activity android:name=".bodyExecutar.ItemProdutoOs" />
+        <activity android:name=".bodyExecutar.FotosOs" />
+        <activity android:name=".bodyExecutar.AssExecutar" />
+        <activity android:name=".bodyExecutar.FimExecutar" />
+        <activity android:name=".SignActivity"></activity>
+
+        <!--
+            GCM Receiver
+        -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.gnirt69.gcmexample"/>
+            </intent-filter>
+        </receiver>
+
+        <!--
+            GCM Receiver Service
+        -->
+        <service android:name=".GCM.GCMPushReceiverService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+
+        <!--
+            GCM Registration Intent Service
+        -->
+        <service android:name=".GCM.GCMRegistrationIntentService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

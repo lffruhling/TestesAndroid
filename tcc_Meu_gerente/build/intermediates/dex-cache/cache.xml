@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="292a9fa091757208efa65e77eef63088247e51f3">
+        <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.2.0_8f1c042f517fec68b4a6df71cd25d5e898446ca9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="23ed05f0758f40d95e73829bee730b818520a431">
+        <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_20983f0b1e259a0adf514f3d4899f731fc7a957d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="b881f41de1a0c466f58bb458633280b941fd686e">
+        <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\pre-dexed\debug\instant-run_d62f3a160dfe5cc8e8d24aa13a36202fcb710265.jar" />
+    </item>
+    <item
+        jar="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
+        <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.2.0_af5a2217e6446b45d4c06eec575a5cd89643a1a8.jar" />
+    </item>
+    <item
+        jar="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\jars\libs\internal_impl-23.2.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="6e239441500605809818997dd63b62a947195f8c">
+        <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\pre-dexed\debug\internal_impl-23.2.0_df8119fe3d16df8c5851a4f68d9835c23ab1805a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="6e3578f92f7462d1a935a1d36173e3bdd1234976">
+        <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.2.0_953a810f0a2e0d33bd2a5aa5c452a07c5e9715cd.jar" />
+    </item>
+    <item
+        jar="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8c108c22c99e794eff255bb34d2a461200c4cbb0">
+        <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.2.0_0311168efd65dd80bbdd2017fe439f0186186969.jar" />
+    </item>
+    <item
+        jar="C:\Users\Leonardo\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.0\support-annotations-23.2.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="c5bf571bb10462bd90e5419ade67793f71acbc87">
+        <dex dex="C:\Users\Leonardo\Documents\Desenvolvimento\Android\testes\tcc_Meu_gerente\app\build\intermediates\pre-dexed\debug\support-annotations-23.2.0_6ed29676560ce5d5e5730d025a0089a9006a0abf.jar" />
+    </item>
+
+</items>

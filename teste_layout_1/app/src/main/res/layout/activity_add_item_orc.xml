@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.webdroidteam.teste_layout_1.bodyOrcar.AddItemOrc">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cpo_add_orc_desc"
+        android:hint="Descrição"
+        android:layout_marginTop="5dp"
+        android:textSize="22sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/lin_add_orc_quantidade"
+        android:layout_below="@+id/cpo_add_orc_desc"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Quantidade:"
+            android:textSize="22sp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/cpo_add_orc_quant"
+            android:hint="00"
+            android:gravity="center"
+            android:textSize="22sp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lin_add_orc_quantidade"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:id="@+id/lin_add_orc_fotos">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:id="@+id/txt_add_orc_foto"
+            android:text="Fotos: "
+            android:layout_marginLeft="5dp"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/img_add_orc_foto1"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/add_128"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/img_add_orc_foto2"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/add_128"
+            android:layout_weight="1"/>
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/img_add_orc_foto3"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/add_128"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/lin_add_orc_btn"
+        android:layout_below="@+id/lin_add_orc_fotos"
+        android:layout_marginTop="15dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_footer_height"
+            android:id="@+id/btn_add_orc_cancelar"
+            android:text="Cancelar"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_footer_height"
+            android:id="@+id/btn_add_orc_adicionar"
+            android:text="Adicionar"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

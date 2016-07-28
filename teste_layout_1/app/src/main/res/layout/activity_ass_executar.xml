@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.webdroidteam.teste_layout_1.bodyExecutar.AssExecutar">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cpo_ass_exec_obs"
+        android:hint="Observações"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:textSize="22dp"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cliente Ausente"
+        android:id="@+id/ckb_ass_exec_ausente"
+        android:layout_below="@id/cpo_ass_exec_obs"
+        android:layout_marginBottom="10dp"
+        android:textSize="@dimen/texto_normal"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_ass_exec_termo"
+        android:text="@string/termo_exec"
+        android:gravity="center"
+        android:layout_below="@+id/ckb_ass_exec_ausente"
+        android:layout_marginTop="5dp"
+        android:textSize="22dp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:padding="10dp"
+        android:scaleType="centerCrop"
+        android:cropToPadding="true"
+        android:id="@+id/img_ass_exec_ass"
+        android:layout_below="@+id/txt_ass_exec_termo"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:onClick="assinarExec"
+        android:background="@drawable/border_image"
+        android:tag="img_ass_orc"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_footer_height"
+        android:orientation="horizontal"
+        android:layout_below="@+id/img_ass_exec_ass"
+        android:id="@+id/linearLayout">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btn_ass_exec_voltar"
+            android:text="Voltar"
+            android:onClick="voltar"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btn_ass_exec_finalizar"
+            android:text="Enviar"
+            android:onClick="enviar_exec"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
